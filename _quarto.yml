@@ -15,6 +15,8 @@ format:
     theme: cosmo
     css: styles.css
     toc: true
+    analytics:
+      google: G-TH229ZFG23
 
 
 
