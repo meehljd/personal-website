@@ -1,9 +1,10 @@
 project:
   type: website
+  output-dir: docs
 
 website:
   title: "Josh Meehl"
-  decription: "Josh Meehl's Data Science Portfolio"
+  description: "Josh Meehl's Data Science Portfolio"
   navbar:
     left:
       - href: index.qmd
@@ -12,7 +13,7 @@ website:
 
 format:
   html:
-    theme: cosmo
+    theme: flatly
     css: styles.css
     toc: true
     analytics:
