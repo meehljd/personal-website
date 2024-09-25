@@ -7,9 +7,22 @@ website:
   description: "Josh Meehl's Data Science Portfolio"
   navbar:
     left:
-      - href: index.qmd
-        text: Home
-      - about.qmd
+      - text: Home
+        href: index.qmd
+      - text: Resume
+        href: resume.qmd
+      - text: Projects
+        menu:
+          - text: Protein Engineering
+            href: projects/protein-engineering.qmd
+          - text: Simulated Annealing
+            href: projects/simulated-annealing.qmd
+          - text: COVID Strain Clustering
+            href: projects/covid-strain-clustering.qmd
+          - text: MTG Analysis
+            href: https://mage.meehl.org
+      - text: Contact
+        href: contact.qmd
 
 format:
   html:

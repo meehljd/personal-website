@@ -1,0 +1,54 @@
+---
+title: "Protein Engineering"
+---
+
+# Protein Engineering Project
+
+Developed an ML-based pipeline for enzyme development using large language models (LLMs) and optimization algorithms.
+
+## Overview
+
+- **Objective**: Enhance enzyme functionality through predictive modeling and optimization.
+- **Approach**:
+  - Evaluated protein language models (PLMs) for functional prediction.
+  - Analyzed zero-shot prediction methods comparing mutant and wild-type sequences.
+  - Implemented Bayesian optimization and Gaussian processes.
+
+## Results
+
+- **Efficiency Gain**: Reduced discovery iterations by 2.2x.
+- **Cost Savings**: Projected to save over $580,000 per discovery campaign.
+
+## Technologies Used
+
+- **Languages**: Python
+- **Libraries**: PyTorch, Scikit-learn, GPytorch
+- **Methods**: Bayesian Optimization, Gaussian Processes, Machine Learning
+
+*(Add more details, visuals, or code snippets as appropriate)*
+
+---
+
+#### **Repeat for Other Projects**
+
+- **Simulated Annealing**: `projects/simulated-annealing.qmd`
+- **COVID DNA Clustering**: `projects/covid-dna-clustering.qmd`
+- **MTG Analysis**: You can link directly to `mage.meehl.org` or create a page describing the project and link to it.
+
+---
+
+### **6. Add a Contact Page (`contact.qmd`)**
+
+```markdown
+---
+title: "Contact"
+---
+
+# Get in Touch
+
+Feel free to reach out via email or connect on LinkedIn and GitHub.
+
+- **Email**: [joshua@meehl.org](mailto:joshua@meehl.org)
+- **LinkedIn**: [linkedin.com/in/meehl](https://www.linkedin.com/in/meehl)
+- **GitHub**: [github.com/meehljd](https://github.com/meehljd)
+- **Website**: [mage.meehl.org](https://mage.meehl.org)

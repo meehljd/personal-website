@@ -1,0 +1,65 @@
+---
+title: "Resume"
+---
+
+# Resume
+
+## Professional Experience
+
+### **Bioinformatic Data Scientist, LGC (Diagnostics & Genomics R&D)**
+
+- **Protein Engineering**
+  - Developed an ML-based pipeline for enzyme development using LLMs and optimization algorithms.
+  - Evaluated protein language models (PLMs) derived from LLMs for functional prediction of enzyme sequences.
+  - Analyzed zero-shot prediction methods using marginal likelihoods between mutant and wild-type sequences.
+  - Implemented Bayesian optimization and Gaussian processes to efficiently explore the fitness landscape.
+  - Reduced the expected number of discovery iterations by 2.2x, projected to save over $580,000 per discovery campaign.
+
+- **Highly-Multiplex NGS Workflow**
+  - Analyzed genotyping panels targeting 200-5,000 loci, utilizing PCR and NGS technologies.
+  - Developed a GCN-based primer-dimer prediction model in PyG, reducing primer-dimer read counts by over 35%.
+  - Optimized primer design objective function, enhancing functional performance and reducing loci read variance by 20%.
+
+- **Oligos Failure Model**
+  - Enhanced a model for predicting oligo production failures due to biochemical and process factors.
+  - Built a model validation suite, addressing issues with data leakage, distribution shift, and class imbalance.
+  - Transitioned from MLE to Bayesian inference methods, utilizing causal DAGs for insights.
+  - Identified key product families with distinct production failure profiles, achieving a Brier score of less than 0.1 on PPCs.
+  - Deployed to pricing and production teams, leading to calibrated pricing, improved margins on over $37M/year in product sales, and reducing failures by over 15%.
+
+- **Automation and Pipelines**
+  - Automated seven NGS bioinformatic pipelines in Apache Airflow, reducing R&D labor by 2 FTEs under ISO 13485 control.
+  - Designed an ML pipeline in AWS to predict positive drug screens from LCMS data, reducing labor by 2.5 FTEs.
+
+### **Systems Engineer III, LGC (Diagnostics & Genomics R&D)**
+
+- Evaluated a portfolio of scientific instruments spanning mechanical, electrical, software, and biochemical subsystems.
+- Conducted DOE to pinpoint failures in SARS-CoV-2 PCR diagnostic workflow, resulting in $60,000/day savings.
+- Engineered a computer vision system for precise reagent dispense in PCR instruments, reducing mis-dispenses by 85%.
+- Created a PCR assay scoring algorithm employing semi-supervised learning techniques to increase scoring consistency.
+- Led regression and integration testing for software systems encompassing UI, controls, analytics, and protocol systems.
+
+*(Include other roles as needed)*
+
+## Education
+
+### **M.S. Analytics, Georgia Institute of Technology**
+
+- **Track**: Computational Data Analytics (Data Science & AI)
+- **Practicum**: Efficient Protein Engineering Variant Screening using LLMs and Bayesian Optimization
+
+### **B.S. Mechanical Engineering, Rose-Hulman Institute of Technology**
+
+- **Minors**: Economics; Management Studies
+
+## Credentials & Awards
+
+- **LGC Value Awards**: Brilliance 2021; Curiosity 2018
+- **Licensed Professional Engineer**, 2013 - 2024
+
+## Skills
+
+- **Programming Languages**: Python, R, SQL, Spark
+- **Frameworks & Libraries**: Scikit-learn, PyTorch, Airflow, JAX, AWS
+- **Visualizations & Dashboards**: Matplotlib, Seaborn, Streamlit, Plotly
+- **Programming Skills**: Git, Docker, OOP, APIs, Agile, TDD

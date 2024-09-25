@@ -1,7 +1,7 @@
 ---
-title: "personal-website"
+title: "Welcome"
 ---
 
-This is a Quarto website.
+# Welcome to My Portfolio
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+I'm **Josh Meehl**, a Data Scientist specializing in bioinformatics and chemical production processes. Explore my projects and experience to learn more about my work.
