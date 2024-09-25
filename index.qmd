@@ -1,7 +1,45 @@
 ---
-title: "Welcome"
+title: "Home"
+title-block: false
 ---
 
-# Welcome to My Portfolio
+# About Me
 
-I'm **Josh Meehl**, a Data Scientist specializing in bioinformatics and chemical production processes. Explore my projects and experience to learn more about my work.
+Hello! I'm **Josh Meehl**, a passionate Data Scientist specializing in bioinformatics and chemical production processes. With a strong foundation in engineering and analytics, I thrive at the intersection of technology and life sciences, developing innovative solutions that drive meaningful impact.
+
+## My Journey
+
+My academic journey began at the **Rose-Hulman Institute of Technology**, where I earned a Bachelor of Science in Mechanical Engineering with minors in Economics and Management Studies. This multidisciplinary education equipped me with a robust understanding of both the technical and business aspects of engineering projects.
+
+Driven by a curiosity for data and its transformative potential, I pursued a **Master of Science in Analytics** from the **Georgia Institute of Technology**. Specializing in Computational Data Analytics (Data Science & AI), my practicum focused on **Efficient Protein Engineering Variant Screening using LLMs and Bayesian Optimization**. This experience deepened my expertise in machine learning and its applications in bioinformatics.
+
+## Professional Experience
+
+At **LGC (Diagnostics & Genomics R&D)**, I have leveraged my skills to:
+
+- **Protein Engineering**:
+  - Developed machine learning pipelines for enzyme development using large language models and optimization algorithms, significantly reducing discovery iterations and saving costs.
+- **NGS Workflow Optimization**:
+  - Analyzed highly-multiplex next-generation sequencing panels, improving primer design and reducing read variance, enhancing overall functional performance.
+- **Predictive Modeling for Oligos Production**:
+  - Enhanced predictive models for oligo production, leading to calibrated pricing strategies and improved margins on over $37 million in annual product sales.
+- **Automation of Pipelines**:
+  - Streamlined bioinformatic and machine learning pipelines, reducing manual labor and increasing efficiency under strict regulatory controls.
+
+Previously, as a **Systems Engineer III** at LGC, I evaluated complex scientific instruments and conducted critical analyses that resulted in substantial cost savings and improved product performance.
+
+## Strengths and Skills
+
+- **Machine Learning & AI**: Proficient in developing models using Python, R, and frameworks like PyTorch and Scikit-learn.
+- **Data Analytics**: Skilled in statistical analysis, Bayesian methods, and optimization algorithms to drive data-driven decisions.
+- **Software Development**: Experienced in Git, Docker, APIs, and agile methodologies, ensuring scalable and maintainable solutions.
+- **Problem-Solving**: Adept at tackling complex challenges by integrating cross-disciplinary knowledge from engineering, data science, and business.
+
+## Personal Interests
+
+Outside of my professional work, I enjoy exploring the realms of data analytics through personal projects. One such project is **MTG Analysis** on my website [mage.meehl.org](https://mage.meehl.org), where I apply analytical techniques to delve into the intricacies of the game **Magic: The Gathering**.
+
+I'm always eager to learn and stay updated with the latest advancements in technology and data science. Whether it's experimenting with new machine learning models or diving into the nuances of bioinformatics, my enthusiasm for discovery drives me forward.
+
+---
+

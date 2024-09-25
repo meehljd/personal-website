@@ -1,5 +1,6 @@
 ---
 title: "Annealing of Nations"
+title-block: false
 ---
 
 # Annealing of Nations

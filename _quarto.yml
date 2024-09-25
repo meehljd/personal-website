@@ -23,6 +23,13 @@ website:
             href: https://mage.meehl.org
       - text: Contact
         href: contact.qmd
+    right:
+      - icon: github
+        href: https://github.com/meehljd/mtg-modeling
+      - icon: blog
+        href: https://mage.meehl.org
+      - icon: linkedin
+        href: https://www.linkedin.com/in/meehl/
 
 format:
   html:

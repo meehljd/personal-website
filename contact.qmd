@@ -1,5 +1,6 @@
 ---
 title: "Contact"
+title-block: false
 ---
 
 # Contact Me
