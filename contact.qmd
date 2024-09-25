@@ -1,0 +1,33 @@
+---
+title: "Contact"
+---
+
+# Contact Me
+
+I'm open to discussing new projects, collaborations, or opportunities. Please feel free to reach out!
+
+## Direct Contact
+
+- **Email**: [joshua@meehl.org](mailto:joshua@meehl.org)
+- **Phone**: [320-224-5017](tel:3202245017)
+
+## Connect Online
+
+- ![LinkedIn](images/linkedin.png){width=24px} [LinkedIn](https://www.linkedin.com/in/meehl)
+- ![GitHub](images/github.png){width=24px} [GitHub](https://github.com/meehljd)
+- ![Website](images/website.png){width=24px} [mage.meehl.org](https://mage.meehl.org)
+
+## Send a Message
+
+<form action="https://formspree.io/f/your-form-id" method="POST">
+  <label for="name">Your Name:</label>
+  <input type="text" id="name" name="name">
+
+  <label for="email">Your Email:</label>
+  <input type="email" id="email" name="_replyto">
+
+  <label for="message">Your Message:</label>
+  <textarea id="message" name="message"></textarea>
+
+  <button type="submit">Send</button>
+</form>
