@@ -3,4 +3,3 @@ title: "Covid clustering"
 title-block: false
 ---
 
-# Covid Clustering

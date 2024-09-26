@@ -12,6 +12,7 @@ website:
       - text: Resume
         href: resume.qmd
       - text: Projects
+        # href: projects.qmd
         menu:
           - text: Protein Engineering
             href: projects/protein-engineering.qmd
@@ -19,15 +20,15 @@ website:
             href: projects/simulated-annealing.qmd
           - text: COVID Strain Clustering
             href: projects/covid-strain-clustering.qmd
-          - text: MTG Analysis
+          - text: The Data Mage
             href: https://mage.meehl.org
       - text: Contact
         href: contact.qmd
     right:
+      - text: The Data Mage
+        href: https://mage.meehl.org
       - icon: github
         href: https://github.com/meehljd/mtg-modeling
-      - icon: blog
-        href: https://mage.meehl.org
       - icon: linkedin
         href: https://www.linkedin.com/in/meehl/
 
@@ -36,8 +37,13 @@ format:
     theme: flatly
     css: styles.css
     toc: true
+    toc-depth: 2
+    include-after-body: _includes/_footer.html
     analytics:
       google: G-TH229ZFG23
-
+    grid:
+      # sidebar-width: 250px
+      body-width: 800px
+      # margin-width: 300px
 
 
