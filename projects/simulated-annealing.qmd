@@ -1,84 +1,67 @@
----
-title: "Annealing of Nations"
-title-block: false
----
+# Annealing of Nations: Where Kids' Music Meets Optimization Algorithms
 
-# Annealing of Nations
+One challenge with having little ones is finding kids' music that doesn't slowly drive you crazy. My family enjoys the kids' albums by the nerd rock group They Might Be Giants (TMBG). Their song "Alphabet of Nations" is quite catchy.
 
-An exploration of applying simulated annealing algorithms to optimize complex systems related to global data.
+At the same time my family was listening to the TMBG albums, I was also studying optimization and search heuristics. I was fascinated by the traveling salesman problem (TSP) and the various algorithms used to solve it.
 
-## Overview
+And so, in a moment of what I can only describe as sleep-deprived inspiration (parents, you know what I'm talking about), I decided to combine these two seemingly unrelated interests. The result? A project that uses the Simulated Annealing algorithm to solve a Traveling Salesperson Problem based on the nations mentioned in TMBG's "Alphabet of Nations". Because why not?
 
-The "Annealing of Nations" project applies simulated annealing techniques to solve large-scale optimization problems in geopolitical and socio-economic data. By modeling nations and their interactions as a complex system, the project seeks to find optimal configurations that could lead to improved outcomes in areas such as trade, resource allocation, and diplomatic relations.
+## The Challenge
 
-## Objectives
+The task was straightforward, if a bit eccentric: find the most efficient route to visit all the countries listed in the song. Here's our illustrious itinerary:
 
-- **Optimize Global Parameters**: Utilize simulated annealing to find optimal solutions in a high-dimensional space representing nation-level data.
-- **Analyze Algorithm Performance**: Evaluate the effectiveness of simulated annealing compared to other optimization algorithms.
-- **Provide Insights**: Generate actionable insights that could inform policy decisions or economic strategies.
+Algeria, Bulgaria, Cambodia, Dominica, Egypt, France, Gambia, Hungary, Iran, Japan, Kazakhstan, Libya, Mongolia, Norway, Oman, Pakistan, Qatar, Russia, Suriname, Turkey, Uruguay, Vietnam, Xylokeriza (Greece), Yemen, Zimbabwe
 
-## Methods
+You might notice that "Xylokeriza, Greece" seems out of place. That's because the song actually mentions "West Xylophone", which, last I checked, isn't a recognized nation. Since "xylophone" is of Greek origins, I substituted it with a real place in Greece that has "xylo" in the name. Creative problem-solving at its finest.
 
-- **Data Collection**:
-  - Gathered datasets on economic indicators, political alliances, trade agreements, and social metrics from various international databases.
-- **Simulated Annealing Algorithm**:
-  - Implemented a custom simulated annealing algorithm in Python.
-  - Defined an energy function to evaluate the "cost" or "inefficiency" of a given configuration.
-  - Adjusted parameters such as initial temperature, cooling schedule, and stopping criteria for optimal performance.
-- **Comparative Analysis**:
-  - Compared results with other algorithms like genetic algorithms and gradient descent to benchmark performance.
-- **Visualization**:
-  - Used Matplotlib and Seaborn to create visual representations of the optimization process and results.
+For those curious about the musical inspiration behind this madness, you can find the [video here](https://www.youtube.com/watch?v=drgrvDypOjA). Just don't blame me if it gets stuck in your head.
 
-## Results
+## The Results
 
-- **Efficiency Gains**:
-  - Achieved a significant reduction in computational time compared to exhaustive search methods.
-  - Found solutions that improved the optimization objective by up to **X%** (replace with actual figures).
-- **Algorithm Performance**:
-  - Simulated annealing outperformed other heuristic methods in escaping local minima.
-- **Insights**:
-  - Identified key factors that have the most impact on the optimization outcome, such as trade tariffs and resource distribution.
+After letting the algorithm run, here's what it came up with:
 
-## Technologies Used
+![Optimized Flight Routes Map](images/projects/sa/best_path.png)
 
-- **Programming Languages**: Python
-- **Libraries**:
-  - NumPy and Pandas for data manipulation.
-  - Matplotlib and Seaborn for data visualization.
-  - Custom implementation of simulated annealing algorithm.
-- **Tools**:
-  - Jupyter Notebooks for interactive development.
-  - Git and GitHub for version control.
+*Connect-the-dots world tour.*
 
-## Challenges and Learnings
+And because no good project is complete without a graph, here's how our trip cost evolved over time:
 
-- **High-Dimensional Data**:
-  - Managed the complexity of multi-dimensional optimization by implementing dimensionality reduction techniques.
-- **Data Quality**:
-  - Dealt with incomplete or inconsistent data entries by applying data cleaning and imputation methods.
-- **Parameter Tuning**:
-  - Learned the importance of hyperparameter tuning in the simulated annealing algorithm to balance exploration and exploitation.
+![Trip Cost per Iteration](images/projects/sa/costs.png)
 
-## Future Work
+*A visual representation of my sanity throughout this project*
 
-- **Algorithm Enhancements**:
-  - Incorporate machine learning techniques to improve the energy function.
-  - Explore parallel processing to further reduce computational time.
-- **Expanded Scope**:
-  - Apply the methodology to other complex systems like climate modeling or network optimization.
-- **Collaboration**:
-  - Seek partnerships with academic institutions or policy think tanks to apply findings in real-world scenarios.
+As you can see, we started with costs ranging from $9,000 to $15,000 per person. Thankfully, our trusty algorithm managed to bring it down to a more reasonable $6,000. Still not cheap, but hey, that's the price of combining data science and musical geography.
 
-## Repository
+## The Method to the Madness
 
-- **GitHub**: [Annealing of Nations](https://github.com/meehljd/Annealing-of-Nations)
+For those interested in the technical details (and let's face it, if you've read this far, you probably are), here's how I put this together:
 
-  Visit the repository to explore the code, datasets, and detailed documentation of the project.
+### Flight Data
 
-## Contact
+I repurposed some code from a previous project, the "Flight Deal Finder", because why solve one problem when you can solve two? This code does the following:
 
-If you have any questions or would like to discuss potential collaborations, feel free to reach out:
+1. Choosing the busiest airport in each country.
+2. Creating a [Google Sheet](https://docs.google.com/spreadsheets/d/19raiE-l9t2JQhXz9MIMl93NWHnDpGyqgyGUEPSGaBk0/edit?usp=sharing) with these airports.
+3. Using the Tiquila API via Kiwi.com to get flight prices, with some arbitrary rules to keep things interesting:
+   - Cheapest one-way flights with up to 3 layovers
+   - Flight dates within 6 months of the query date
 
-- **Email**: [joshua@meehl.org](mailto:joshua@meehl.org)
-- **LinkedIn**: [linkedin.com/in/meehl](https://www.linkedin.com/in/meehl)
+### Optimization
+
+This is where the Simulated Annealing algorithm comes in. If you're not familiar with it, imagine the process of forging a sword. Imagine heating metal to a high temperature so it becomes malleable, then slowly cooling it while hammering to remove imperfections. In simulated annealing, the "temperature" controls how freely the algorithm explores possible solutions, starting with random, wide exploration (high temperature) and gradually focusing on improving solutions (lower temperature). Just like how a blacksmith avoids cooling the metal too quickly to prevent cracks, the algorithm reduces randomness gradually to find an optimal solution without getting stuck in suboptimal ones. But here, instead of a sword, we have a travel itinerary. For the curious (or the insomniacs), there's always the [Wikipedia page](https://en.wikipedia.org/wiki/Simulated_annealing).
+
+The algorithm will randomly swap a pair of airports to change the route and compare the results to the previous route. If the new paths do not have available flights, the new route is rejected. If the new route is cheaper, it is kept. If the new route is more expensive, it is rejected with some probability of keeping it, based on the relative difference in the two routes' performance, as well as the temperature parameter.
+
+![Temperature Schedule](images/projects/sa/schedule.png)
+
+*The algorithm going from hog-wild to tuckered-out*
+
+## What's Next?
+
+Having completed this project, I find myself at a crossroads. Do I:
+
+a) Expand on this, perhaps finding the optimal route for other music-inspired challenges? (Beach Boy's Kokomo, anyone?)
+b) Use my newfound skills for something practical, like a trip optimizer app?
+c) Finally get some sleep?
+
+Only time will tell. In the meantime, if you have any suggestions for improvements or just want to commiserate about the intersection of parenting, music, and data science, feel free to reach out. I'll be here, probably humming "Alphabet of Nations" and dreaming of efficient flight paths.
