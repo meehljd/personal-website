@@ -1,4 +1,8 @@
-# Annealing of Nations: Where Kids' Music Meets Optimization Algorithms
+---
+title: "Annealing of Nations: Where Kids' Music Meets Optimization Algorithms"
+title-block: false
+date: December 20, 2021
+---
 
 One challenge with having little ones is finding kids' music that doesn't slowly drive you crazy. My family enjoys the kids' albums by the nerd rock group They Might Be Giants (TMBG). Their song "Alphabet of Nations" is quite catchy.
 

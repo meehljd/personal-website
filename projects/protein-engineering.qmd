@@ -1,57 +1,93 @@
 ---
-title: "Protein Engineering"
+title: "Protein Engineering: Harnessing Machine Learning for Molecular Design"
 title-block: false
+date: April 10, 2024
 ---
 
-# Protein Engineering Project
+Protein engineering is a fascinating field at the intersection of biology, chemistry, and computer science. It involves the design and modification of proteins to create new or enhanced functionalities. In this project, I explored the potential of using advanced machine learning models to improve the process of developing new proteins with enhanced properties.
 
-Developed an ML-based pipeline for enzyme development using large language models (LLMs) and optimization algorithms.
+This project was my practicum for my master's degree in analytics at Georgia Tech, where I applied my data science skills to the field of protein engineering.
 
-[Practicum Final Report](../files/Practicum_Final_Report.pdf)
+## The Challenge
 
-## Overview
+The task was to develop a computational pipeline to efficiently identify superior protein variants for a diverse set of proteins. This challenge is crucial in many areas of biotechnology, from developing new enzymes for industrial processes to creating better therapeutics.
 
-- **Objective**: Enhance enzyme functionality through predictive modeling and optimization.
-- **Approach**:
-  - Evaluated protein language models (PLMs) for functional prediction.
-  - Analyzed zero-shot prediction methods comparing mutant and wild-type sequences.
-  - Implemented Bayesian optimization and Gaussian processes.
+The main obstacles in protein engineering are:
 
-## Results
+1. The high cost and time requirements of experimental testing.  Ideally we can reduce the number of experiments needed to find the best protein variant.  This also means we will typically have little or no functional data to start with.
+1. The complex relationship between protein sequence and function.  This is where LLM type models can really shine.  We need to be able to predict a protein's function given its sequence. 
+1. The vast search space of possible protein sequences.  This is like finding a needle in a haystack the size of the universe.  This is called the "combinatorial explosion" problem.  We need to find the optimal protein variants in this massive fitness landscape.
 
-- **Efficiency Gain**: Reduced discovery iterations by 2.2x.
-- **Cost Savings**: Projected to save over $580,000 per discovery campaign.
+My goal was to use machine learning to navigate this complex landscape more efficiently, reducing the time and resources needed to discover improved protein variants.
 
-## Technologies Used
+![Computational Pipeline](..\images\projects\pe\comp_workflow.png)
+*The 3 main steps in my computational pipeline*
 
-- **Languages**: Python
-- **Libraries**: PyTorch, Scikit-learn, GPytorch
-- **Methods**: Bayesian Optimization, Gaussian Processes, Machine Learning
+## The Method
 
-*(Add more details, visuals, or code snippets as appropriate)*
+For those interested in the technical details, here's how I approached this challenge:
 
----
+1. **Data**: I used a dataset of 34 deep mutational scanning (DMS) studies, spanning 25 organisms and various protein functions.
 
-#### **Repeat for Other Projects**
+2. **Zero-shot Learning**: I employed the Evolutionary Scale Modeling (ESM) family of transformer-based protein language models developed by Facebook AI Research. These models can make predictions about protein function without any experimental data.
 
-- **Simulated Annealing**: `projects/simulated-annealing.qmd`
-- **COVID DNA Clustering**: `projects/covid-dna-clustering.qmd`
-- **MTG Analysis**: You can link directly to `mage.meehl.org` or create a page describing the project and link to it.
+3. **Few-shot Learning**: Using the DMS experimental data, I trained various regression models (k-nearest neighbors, support vector machines, random forests, and ridge regression) on embeddings from the PLMs.
 
----
+4. **Gaussian Processes**: To balance exploration and exploitation in my search for superior variants, I implemented Gaussian Process models that provide both predictions and uncertainty estimates.
 
-### **6. Add a Contact Page (`contact.qmd`)**
+5. **Bayesian Optimization**: I used a simplified Bayesian optimization approach to efficiently search the protein fitness landscape, leveraging the uncertainties provided by the GP models.
 
-```markdown
----
-title: "Contact"
----
+## The Results
 
-# Get in Touch
+After developing and testing my computational pipeline, I found some key insights.
 
-Feel free to reach out via email or connect on LinkedIn and GitHub.
 
-- **Email**: [joshua@meehl.org](mailto:joshua@meehl.org)
-- **LinkedIn**: [linkedin.com/in/meehl](https://www.linkedin.com/in/meehl)
-- **GitHub**: [github.com/meehljd](https://github.com/meehljd)
-- **Website**: [mage.meehl.org](https://mage.meehl.org)
+Zero-shot learning achieved a median Spearman rank correlation of ρ ≈ 0.52 between predicted and actual protein functionality.
+
+![Zero-Shot Correlation](..\images\projects\pe\rank_correlation_AMIE_PSEAE_Whitehead.png)
+
+*Correlation between actual and predicted functional rank of an example protein.*
+
+
+Zero-shot learning with protein language models (PLMs) can reduce the effort required to find superior protein variants by nearly 50%.
+
+![Round to Get Top Variants](..\images\projects\pe\fitness_landscape_AMIE_PSEAE_Whitehead.png)
+
+*Number of rounds to get top variants in DMS dataset for an example protein.*
+
+Few-shot learning with the simple regression algorithms under-performs zero-shot learning.  This is likely due to the small number of data points available for training.
+
+![Few-Shot Correlation](..\images\projects\pe\regression_best_train_hist.png)
+
+*Number of rounds to get top variants in DMS dataset for an example protein.*
+
+The Gaussian Process (GP) regression models start to outperform zero-shot predictions with more data, typically around 300 data points.  The GP also outperforms the other few-shot simple regression models.
+
+![GP Performance vs Training Data](..\images\projects\pe\gauss_best_train_hist.png)
+
+*GP prediction performance as data draining size increases.*
+
+As modeled, using Bayesian Optimization (BO) with Gaussian Processes did not have a 
+large improvement over point estimates.  This bears further investigating.
+
+![Round to Get Top Variants - BO](..\images\projects\pe\bo_fitness_landscape_AMIE_PSEAE_Whitehead.png)
+
+*Number of rounds to get top variants in DMS dataset for an example protein using BO.*
+
+
+## What's Next?
+
+Having completed this project, there are several exciting directions to explore:
+
+a) Expand the approach to a wider range of proteins and functions, potentially uncovering general principles of protein engineering.
+b) Integrate structural information into the models to improve prediction accuracy.
+c) Develop more sophisticated Bayesian optimization strategies for navigating the fitness landscape.
+d) Apply this pipeline to real-world challenges in enzyme engineering or therapeutic protein design.
+
+Recently the [ProteinGym](https://proteingym.org/) was launched.  It is a website that contains a collection of benchmarks and leaderboards for comparing models that predict protein mutation effects.  It is the protein equivalent of [Papers With Code](https://paperswithcode.com/).  It is also a source of more mutational data, with DMS substitutions and indels, as well as mutational clinical data.
+
+## Technical Details
+
+For those who want to dive deeper into the nitty-gritty details, you can find the full technical report [Practicum Final Report](../files/Practicum_Final_Report.pdf). It includes all the mathematical formulas, model architectures, and performance metrics for a comprehensive understanding of the project.
+
+This project demonstrates the power of machine learning in accelerating protein engineering. By combining state-of-the-art language models with clever optimization strategies, we can dramatically reduce the time and cost associated with developing new protein variants. As these techniques continue to evolve, they promise to revolutionize fields from industrial biotechnology to personalized medicine.
