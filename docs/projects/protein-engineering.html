@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2024-04-10">
 
-<title>Protein Engineering – Josh Meehl</title>
+<title>Protein Engineering: Harnessing Machine Learning for Molecular Design – Josh Meehl</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -155,15 +156,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul class="collapse">
-  <li><a href="#protein-engineering-project" id="toc-protein-engineering-project" class="nav-link active" data-scroll-target="#protein-engineering-project">Protein Engineering Project</a>
-  <ul class="collapse">
-  <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview">Overview</a></li>
-  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a></li>
-  <li><a href="#technologies-used" id="toc-technologies-used" class="nav-link" data-scroll-target="#technologies-used">Technologies Used</a></li>
-  <li><a href="#markdown" id="toc-markdown" class="nav-link" data-scroll-target="#markdown">```markdown</a></li>
-  <li><a href="#title-contact" id="toc-title-contact" class="nav-link" data-scroll-target="#title-contact">title: “Contact”</a></li>
-  </ul></li>
-  <li><a href="#get-in-touch" id="toc-get-in-touch" class="nav-link" data-scroll-target="#get-in-touch">Get in Touch</a></li>
+  <li><a href="#the-challenge" id="toc-the-challenge" class="nav-link active" data-scroll-target="#the-challenge">The Challenge</a></li>
+  <li><a href="#the-method" id="toc-the-method" class="nav-link" data-scroll-target="#the-method">The Method</a></li>
+  <li><a href="#the-results" id="toc-the-results" class="nav-link" data-scroll-target="#the-results">The Results</a></li>
+  <li><a href="#whats-next" id="toc-whats-next" class="nav-link" data-scroll-target="#whats-next">What’s Next?</a></li>
+  <li><a href="#technical-details" id="toc-technical-details" class="nav-link" data-scroll-target="#technical-details">Technical Details</a></li>
   </ul>
 </nav>
     </div>
@@ -172,7 +169,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Protein Engineering</h1>
+<h1 class="title">Protein Engineering: Harnessing Machine Learning for Molecular Design</h1>
 </div>
 
 
@@ -180,6 +177,12 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-title-meta">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">April 10, 2024</p>
+    </div>
+  </div>
   
     
   </div>
@@ -189,67 +192,90 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="protein-engineering-project" class="level1">
-<h1>Protein Engineering Project</h1>
-<p>Developed an ML-based pipeline for enzyme development using large language models (LLMs) and optimization algorithms.</p>
-<p><a href="../files/Practicum_Final_Report.pdf">Practicum Final Report</a></p>
-<section id="overview" class="level2">
-<h2 class="anchored" data-anchor-id="overview">Overview</h2>
-<ul>
-<li><strong>Objective</strong>: Enhance enzyme functionality through predictive modeling and optimization.</li>
-<li><strong>Approach</strong>:
-<ul>
-<li>Evaluated protein language models (PLMs) for functional prediction.</li>
-<li>Analyzed zero-shot prediction methods comparing mutant and wild-type sequences.</li>
-<li>Implemented Bayesian optimization and Gaussian processes.</li>
-</ul></li>
-</ul>
+<p>Protein engineering is a fascinating field at the intersection of biology, chemistry, and computer science. It involves the design and modification of proteins to create new or enhanced functionalities. In this project, I explored the potential of using advanced machine learning models to improve the process of developing new proteins with enhanced properties.</p>
+<p>This project was my practicum for my master’s degree in analytics at Georgia Tech, where I applied my data science skills to the field of protein engineering.</p>
+<section id="the-challenge" class="level2">
+<h2 class="anchored" data-anchor-id="the-challenge">The Challenge</h2>
+<p>The task was to develop a computational pipeline to efficiently identify superior protein variants for a diverse set of proteins. This challenge is crucial in many areas of biotechnology, from developing new enzymes for industrial processes to creating better therapeutics.</p>
+<p>The main obstacles in protein engineering are:</p>
+<ol type="1">
+<li>The high cost and time requirements of experimental testing. Ideally we can reduce the number of experiments needed to find the best protein variant. This also means we will typically have little or no functional data to start with.</li>
+<li>The complex relationship between protein sequence and function. This is where LLM type models can really shine. We need to be able to predict a protein’s function given its sequence.</li>
+<li>The vast search space of possible protein sequences. This is like finding a needle in a haystack the size of the universe. This is called the “combinatorial explosion” problem. We need to find the optimal protein variants in this massive fitness landscape.</li>
+</ol>
+<p>My goal was to use machine learning to navigate this complex landscape more efficiently, reducing the time and resources needed to discover improved protein variants.</p>
+<p><img src="..\images\projects\pe\comp_workflow.png" class="img-fluid" alt="Computational Pipeline"> <em>The 3 main steps in my computational pipeline</em></p>
 </section>
-<section id="results" class="level2">
-<h2 class="anchored" data-anchor-id="results">Results</h2>
-<ul>
-<li><strong>Efficiency Gain</strong>: Reduced discovery iterations by 2.2x.</li>
-<li><strong>Cost Savings</strong>: Projected to save over $580,000 per discovery campaign.</li>
-</ul>
+<section id="the-method" class="level2">
+<h2 class="anchored" data-anchor-id="the-method">The Method</h2>
+<p>For those interested in the technical details, here’s how I approached this challenge:</p>
+<ol type="1">
+<li><p><strong>Data</strong>: I used a dataset of 34 deep mutational scanning (DMS) studies, spanning 25 organisms and various protein functions.</p></li>
+<li><p><strong>Zero-shot Learning</strong>: I employed the Evolutionary Scale Modeling (ESM) family of transformer-based protein language models developed by Facebook AI Research. These models can make predictions about protein function without any experimental data.</p></li>
+<li><p><strong>Few-shot Learning</strong>: Using the DMS experimental data, I trained various regression models (k-nearest neighbors, support vector machines, random forests, and ridge regression) on embeddings from the PLMs.</p></li>
+<li><p><strong>Gaussian Processes</strong>: To balance exploration and exploitation in my search for superior variants, I implemented Gaussian Process models that provide both predictions and uncertainty estimates.</p></li>
+<li><p><strong>Bayesian Optimization</strong>: I used a simplified Bayesian optimization approach to efficiently search the protein fitness landscape, leveraging the uncertainties provided by the GP models.</p></li>
+</ol>
 </section>
-<section id="technologies-used" class="level2">
-<h2 class="anchored" data-anchor-id="technologies-used">Technologies Used</h2>
-<ul>
-<li><strong>Languages</strong>: Python</li>
-<li><strong>Libraries</strong>: PyTorch, Scikit-learn, GPytorch</li>
-<li><strong>Methods</strong>: Bayesian Optimization, Gaussian Processes, Machine Learning</li>
-</ul>
-<p><em>(Add more details, visuals, or code snippets as appropriate)</em></p>
-<hr>
-<section id="repeat-for-other-projects" class="level4">
-<h4 class="anchored" data-anchor-id="repeat-for-other-projects"><strong>Repeat for Other Projects</strong></h4>
-<ul>
-<li><strong>Simulated Annealing</strong>: <code>projects/simulated-annealing.qmd</code></li>
-<li><strong>COVID DNA Clustering</strong>: <code>projects/covid-dna-clustering.qmd</code></li>
-<li><strong>MTG Analysis</strong>: You can link directly to <code>mage.meehl.org</code> or create a page describing the project and link to it.</li>
-</ul>
-<hr>
+<section id="the-results" class="level2">
+<h2 class="anchored" data-anchor-id="the-results">The Results</h2>
+<p>After developing and testing my computational pipeline, I found some key insights.</p>
+<p>Zero-shot learning achieved a median Spearman rank correlation of ρ ≈ 0.52 between predicted and actual protein functionality.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="..\images\projects\pe\rank_correlation_AMIE_PSEAE_Whitehead.png" class="img-fluid figure-img"></p>
+<figcaption>Zero-Shot Correlation</figcaption>
+</figure>
+</div>
+<p><em>Correlation between actual and predicted functional rank of an example protein.</em></p>
+<p>Zero-shot learning with protein language models (PLMs) can reduce the effort required to find superior protein variants by nearly 50%.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="..\images\projects\pe\fitness_landscape_AMIE_PSEAE_Whitehead.png" class="img-fluid figure-img"></p>
+<figcaption>Round to Get Top Variants</figcaption>
+</figure>
+</div>
+<p><em>Number of rounds to get top variants in DMS dataset for an example protein.</em></p>
+<p>Few-shot learning with the simple regression algorithms under-performs zero-shot learning. This is likely due to the small number of data points available for training.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="..\images\projects\pe\regression_best_train_hist.png" class="img-fluid figure-img"></p>
+<figcaption>Few-Shot Correlation</figcaption>
+</figure>
+</div>
+<p><em>Number of rounds to get top variants in DMS dataset for an example protein.</em></p>
+<p>The Gaussian Process (GP) regression models start to outperform zero-shot predictions with more data, typically around 300 data points. The GP also outperforms the other few-shot simple regression models.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="..\images\projects\pe\gauss_best_train_hist.png" class="img-fluid figure-img"></p>
+<figcaption>GP Performance vs Training Data</figcaption>
+</figure>
+</div>
+<p><em>GP prediction performance as data draining size increases.</em></p>
+<p>As modeled, using Bayesian Optimization (BO) with Gaussian Processes did not have a large improvement over point estimates. This bears further investigating.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="..\images\projects\pe\bo_fitness_landscape_AMIE_PSEAE_Whitehead.png" class="img-fluid figure-img"></p>
+<figcaption>Round to Get Top Variants - BO</figcaption>
+</figure>
+</div>
+<p><em>Number of rounds to get top variants in DMS dataset for an example protein using BO.</em></p>
 </section>
-<section id="add-a-contact-page-contact.qmd" class="level3">
-<h3 class="anchored" data-anchor-id="add-a-contact-page-contact.qmd"><strong>6. Add a Contact Page (<code>contact.qmd</code>)</strong></h3>
+<section id="whats-next" class="level2">
+<h2 class="anchored" data-anchor-id="whats-next">What’s Next?</h2>
+<p>Having completed this project, there are several exciting directions to explore:</p>
+<ol type="a">
+<li>Expand the approach to a wider range of proteins and functions, potentially uncovering general principles of protein engineering.</li>
+<li>Integrate structural information into the models to improve prediction accuracy.</li>
+<li>Develop more sophisticated Bayesian optimization strategies for navigating the fitness landscape.</li>
+<li>Apply this pipeline to real-world challenges in enzyme engineering or therapeutic protein design.</li>
+</ol>
+<p>Recently the <a href="https://proteingym.org/">ProteinGym</a> was launched. It is a website that contains a collection of benchmarks and leaderboards for comparing models that predict protein mutation effects. It is the protein equivalent of <a href="https://paperswithcode.com/">Papers With Code</a>. It is also a source of more mutational data, with DMS substitutions and indels, as well as mutational clinical data.</p>
 </section>
-</section>
-<section id="markdown" class="level2">
-<h2 class="anchored" data-anchor-id="markdown">```markdown</h2>
-</section>
-<section id="title-contact" class="level2">
-<h2 class="anchored" data-anchor-id="title-contact">title: “Contact”</h2>
-</section>
-</section>
-<section id="get-in-touch" class="level1">
-<h1>Get in Touch</h1>
-<p>Feel free to reach out via email or connect on LinkedIn and GitHub.</p>
-<ul>
-<li><strong>Email</strong>: <a href="mailto:joshua@meehl.org">joshua@meehl.org</a></li>
-<li><strong>LinkedIn</strong>: <a href="https://www.linkedin.com/in/meehl">linkedin.com/in/meehl</a></li>
-<li><strong>GitHub</strong>: <a href="https://github.com/meehljd">github.com/meehljd</a></li>
-<li><strong>Website</strong>: <a href="https://mage.meehl.org">mage.meehl.org</a></li>
-</ul>
+<section id="technical-details" class="level2">
+<h2 class="anchored" data-anchor-id="technical-details">Technical Details</h2>
+<p>For those who want to dive deeper into the nitty-gritty details, you can find the full technical report <a href="../files/Practicum_Final_Report.pdf">Practicum Final Report</a>. It includes all the mathematical formulas, model architectures, and performance metrics for a comprehensive understanding of the project.</p>
+<p>This project demonstrates the power of machine learning in accelerating protein engineering. By combining state-of-the-art language models with clever optimization strategies, we can dramatically reduce the time and cost associated with developing new protein variants. As these techniques continue to evolve, they promise to revolutionize fields from industrial biotechnology to personalized medicine.</p>
 
 
 </section>

@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2021-12-20">
 
-<title>Annealing of Nations – Josh Meehl</title>
+<title>Annealing of Nations: Where Kids’ Music Meets Optimization Algorithms – Josh Meehl</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -155,18 +156,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul class="collapse">
-  <li><a href="#annealing-of-nations" id="toc-annealing-of-nations" class="nav-link active" data-scroll-target="#annealing-of-nations">Annealing of Nations</a>
-  <ul class="collapse">
-  <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview">Overview</a></li>
-  <li><a href="#objectives" id="toc-objectives" class="nav-link" data-scroll-target="#objectives">Objectives</a></li>
-  <li><a href="#methods" id="toc-methods" class="nav-link" data-scroll-target="#methods">Methods</a></li>
-  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a></li>
-  <li><a href="#technologies-used" id="toc-technologies-used" class="nav-link" data-scroll-target="#technologies-used">Technologies Used</a></li>
-  <li><a href="#challenges-and-learnings" id="toc-challenges-and-learnings" class="nav-link" data-scroll-target="#challenges-and-learnings">Challenges and Learnings</a></li>
-  <li><a href="#future-work" id="toc-future-work" class="nav-link" data-scroll-target="#future-work">Future Work</a></li>
-  <li><a href="#repository" id="toc-repository" class="nav-link" data-scroll-target="#repository">Repository</a></li>
-  <li><a href="#contact" id="toc-contact" class="nav-link" data-scroll-target="#contact">Contact</a></li>
-  </ul></li>
+  <li><a href="#the-challenge" id="toc-the-challenge" class="nav-link active" data-scroll-target="#the-challenge">The Challenge</a></li>
+  <li><a href="#the-results" id="toc-the-results" class="nav-link" data-scroll-target="#the-results">The Results</a></li>
+  <li><a href="#the-method-to-the-madness" id="toc-the-method-to-the-madness" class="nav-link" data-scroll-target="#the-method-to-the-madness">The Method to the Madness</a></li>
+  <li><a href="#whats-next" id="toc-whats-next" class="nav-link" data-scroll-target="#whats-next">What’s Next?</a></li>
   </ul>
 </nav>
     </div>
@@ -175,7 +168,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Annealing of Nations</h1>
+<h1 class="title">Annealing of Nations: Where Kids’ Music Meets Optimization Algorithms</h1>
 </div>
 
 
@@ -183,6 +176,12 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-title-meta">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">December 20, 2021</p>
+    </div>
+  </div>
   
     
   </div>
@@ -192,131 +191,76 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="annealing-of-nations" class="level1">
-<h1>Annealing of Nations</h1>
-<p>An exploration of applying simulated annealing algorithms to optimize complex systems related to global data.</p>
-<section id="overview" class="level2">
-<h2 class="anchored" data-anchor-id="overview">Overview</h2>
-<p>The “Annealing of Nations” project applies simulated annealing techniques to solve large-scale optimization problems in geopolitical and socio-economic data. By modeling nations and their interactions as a complex system, the project seeks to find optimal configurations that could lead to improved outcomes in areas such as trade, resource allocation, and diplomatic relations.</p>
+<p>One challenge with having little ones is finding kids’ music that doesn’t slowly drive you crazy. My family enjoys the kids’ albums by the nerd rock group They Might Be Giants (TMBG). Their song “Alphabet of Nations” is quite catchy.</p>
+<p>At the same time my family was listening to the TMBG albums, I was also studying optimization and search heuristics. I was fascinated by the traveling salesman problem (TSP) and the various algorithms used to solve it.</p>
+<p>And so, in a moment of what I can only describe as sleep-deprived inspiration (parents, you know what I’m talking about), I decided to combine these two seemingly unrelated interests. The result? A project that uses the Simulated Annealing algorithm to solve a Traveling Salesperson Problem based on the nations mentioned in TMBG’s “Alphabet of Nations”. Because why not?</p>
+<section id="the-challenge" class="level2">
+<h2 class="anchored" data-anchor-id="the-challenge">The Challenge</h2>
+<p>The task was straightforward, if a bit eccentric: find the most efficient route to visit all the countries listed in the song. Here’s our illustrious itinerary:</p>
+<p>Algeria, Bulgaria, Cambodia, Dominica, Egypt, France, Gambia, Hungary, Iran, Japan, Kazakhstan, Libya, Mongolia, Norway, Oman, Pakistan, Qatar, Russia, Suriname, Turkey, Uruguay, Vietnam, Xylokeriza (Greece), Yemen, Zimbabwe</p>
+<p>You might notice that “Xylokeriza, Greece” seems out of place. That’s because the song actually mentions “West Xylophone”, which, last I checked, isn’t a recognized nation. Since “xylophone” is of Greek origins, I substituted it with a real place in Greece that has “xylo” in the name. Creative problem-solving at its finest.</p>
+<p>For those curious about the musical inspiration behind this madness, you can find the <a href="https://www.youtube.com/watch?v=drgrvDypOjA">video here</a>. Just don’t blame me if it gets stuck in your head.</p>
 </section>
-<section id="objectives" class="level2">
-<h2 class="anchored" data-anchor-id="objectives">Objectives</h2>
-<ul>
-<li><strong>Optimize Global Parameters</strong>: Utilize simulated annealing to find optimal solutions in a high-dimensional space representing nation-level data.</li>
-<li><strong>Analyze Algorithm Performance</strong>: Evaluate the effectiveness of simulated annealing compared to other optimization algorithms.</li>
-<li><strong>Provide Insights</strong>: Generate actionable insights that could inform policy decisions or economic strategies.</li>
-</ul>
+<section id="the-results" class="level2">
+<h2 class="anchored" data-anchor-id="the-results">The Results</h2>
+<p>After letting the algorithm run, here’s what it came up with:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/projects/sa/best_path.png" class="img-fluid figure-img"></p>
+<figcaption>Optimized Flight Routes Map</figcaption>
+</figure>
+</div>
+<p><em>Connect-the-dots world tour.</em></p>
+<p>And because no good project is complete without a graph, here’s how our trip cost evolved over time:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/projects/sa/costs.png" class="img-fluid figure-img"></p>
+<figcaption>Trip Cost per Iteration</figcaption>
+</figure>
+</div>
+<p><em>A visual representation of my sanity throughout this project</em></p>
+<p>As you can see, we started with costs ranging from $9,000 to $15,000 per person. Thankfully, our trusty algorithm managed to bring it down to a more reasonable $6,000. Still not cheap, but hey, that’s the price of combining data science and musical geography.</p>
 </section>
-<section id="methods" class="level2">
-<h2 class="anchored" data-anchor-id="methods">Methods</h2>
+<section id="the-method-to-the-madness" class="level2">
+<h2 class="anchored" data-anchor-id="the-method-to-the-madness">The Method to the Madness</h2>
+<p>For those interested in the technical details (and let’s face it, if you’ve read this far, you probably are), here’s how I put this together:</p>
+<section id="flight-data" class="level3">
+<h3 class="anchored" data-anchor-id="flight-data">Flight Data</h3>
+<p>I repurposed some code from a previous project, the “Flight Deal Finder”, because why solve one problem when you can solve two? This code does the following:</p>
+<ol type="1">
+<li>Choosing the busiest airport in each country.</li>
+<li>Creating a <a href="https://docs.google.com/spreadsheets/d/19raiE-l9t2JQhXz9MIMl93NWHnDpGyqgyGUEPSGaBk0/edit?usp=sharing">Google Sheet</a> with these airports.</li>
+<li>Using the Tiquila API via Kiwi.com to get flight prices, with some arbitrary rules to keep things interesting:
 <ul>
-<li><strong>Data Collection</strong>:
-<ul>
-<li>Gathered datasets on economic indicators, political alliances, trade agreements, and social metrics from various international databases.</li>
+<li>Cheapest one-way flights with up to 3 layovers</li>
+<li>Flight dates within 6 months of the query date</li>
 </ul></li>
-<li><strong>Simulated Annealing Algorithm</strong>:
-<ul>
-<li>Implemented a custom simulated annealing algorithm in Python.</li>
-<li>Defined an energy function to evaluate the “cost” or “inefficiency” of a given configuration.</li>
-<li>Adjusted parameters such as initial temperature, cooling schedule, and stopping criteria for optimal performance.</li>
-</ul></li>
-<li><strong>Comparative Analysis</strong>:
-<ul>
-<li>Compared results with other algorithms like genetic algorithms and gradient descent to benchmark performance.</li>
-</ul></li>
-<li><strong>Visualization</strong>:
-<ul>
-<li>Used Matplotlib and Seaborn to create visual representations of the optimization process and results.</li>
-</ul></li>
-</ul>
+</ol>
 </section>
-<section id="results" class="level2">
-<h2 class="anchored" data-anchor-id="results">Results</h2>
-<ul>
-<li><strong>Efficiency Gains</strong>:
-<ul>
-<li>Achieved a significant reduction in computational time compared to exhaustive search methods.</li>
-<li>Found solutions that improved the optimization objective by up to <strong>X%</strong> (replace with actual figures).</li>
-</ul></li>
-<li><strong>Algorithm Performance</strong>:
-<ul>
-<li>Simulated annealing outperformed other heuristic methods in escaping local minima.</li>
-</ul></li>
-<li><strong>Insights</strong>:
-<ul>
-<li>Identified key factors that have the most impact on the optimization outcome, such as trade tariffs and resource distribution.</li>
-</ul></li>
-</ul>
+<section id="optimization" class="level3">
+<h3 class="anchored" data-anchor-id="optimization">Optimization</h3>
+<p>This is where the Simulated Annealing algorithm comes in. If you’re not familiar with it, imagine the process of forging a sword. Imagine heating metal to a high temperature so it becomes malleable, then slowly cooling it while hammering to remove imperfections. In simulated annealing, the “temperature” controls how freely the algorithm explores possible solutions, starting with random, wide exploration (high temperature) and gradually focusing on improving solutions (lower temperature). Just like how a blacksmith avoids cooling the metal too quickly to prevent cracks, the algorithm reduces randomness gradually to find an optimal solution without getting stuck in suboptimal ones. But here, instead of a sword, we have a travel itinerary. For the curious (or the insomniacs), there’s always the <a href="https://en.wikipedia.org/wiki/Simulated_annealing">Wikipedia page</a>.</p>
+<p>The algorithm will randomly swap a pair of airports to change the route and compare the results to the previous route. If the new paths do not have available flights, the new route is rejected. If the new route is cheaper, it is kept. If the new route is more expensive, it is rejected with some probability of keeping it, based on the relative difference in the two routes’ performance, as well as the temperature parameter.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/projects/sa/schedule.png" class="img-fluid figure-img"></p>
+<figcaption>Temperature Schedule</figcaption>
+</figure>
+</div>
+<p><em>The algorithm going from hog-wild to tuckered-out</em></p>
 </section>
-<section id="technologies-used" class="level2">
-<h2 class="anchored" data-anchor-id="technologies-used">Technologies Used</h2>
-<ul>
-<li><strong>Programming Languages</strong>: Python</li>
-<li><strong>Libraries</strong>:
-<ul>
-<li>NumPy and Pandas for data manipulation.</li>
-<li>Matplotlib and Seaborn for data visualization.</li>
-<li>Custom implementation of simulated annealing algorithm.</li>
-</ul></li>
-<li><strong>Tools</strong>:
-<ul>
-<li>Jupyter Notebooks for interactive development.</li>
-<li>Git and GitHub for version control.</li>
-</ul></li>
-</ul>
 </section>
-<section id="challenges-and-learnings" class="level2">
-<h2 class="anchored" data-anchor-id="challenges-and-learnings">Challenges and Learnings</h2>
-<ul>
-<li><strong>High-Dimensional Data</strong>:
-<ul>
-<li>Managed the complexity of multi-dimensional optimization by implementing dimensionality reduction techniques.</li>
-</ul></li>
-<li><strong>Data Quality</strong>:
-<ul>
-<li>Dealt with incomplete or inconsistent data entries by applying data cleaning and imputation methods.</li>
-</ul></li>
-<li><strong>Parameter Tuning</strong>:
-<ul>
-<li>Learned the importance of hyperparameter tuning in the simulated annealing algorithm to balance exploration and exploitation.</li>
-</ul></li>
-</ul>
-</section>
-<section id="future-work" class="level2">
-<h2 class="anchored" data-anchor-id="future-work">Future Work</h2>
-<ul>
-<li><strong>Algorithm Enhancements</strong>:
-<ul>
-<li>Incorporate machine learning techniques to improve the energy function.</li>
-<li>Explore parallel processing to further reduce computational time.</li>
-</ul></li>
-<li><strong>Expanded Scope</strong>:
-<ul>
-<li>Apply the methodology to other complex systems like climate modeling or network optimization.</li>
-</ul></li>
-<li><strong>Collaboration</strong>:
-<ul>
-<li>Seek partnerships with academic institutions or policy think tanks to apply findings in real-world scenarios.</li>
-</ul></li>
-</ul>
-</section>
-<section id="repository" class="level2">
-<h2 class="anchored" data-anchor-id="repository">Repository</h2>
-<ul>
-<li><p><strong>GitHub</strong>: <a href="https://github.com/meehljd/Annealing-of-Nations">Annealing of Nations</a></p>
-<p>Visit the repository to explore the code, datasets, and detailed documentation of the project.</p></li>
-</ul>
-</section>
-<section id="contact" class="level2">
-<h2 class="anchored" data-anchor-id="contact">Contact</h2>
-<p>If you have any questions or would like to discuss potential collaborations, feel free to reach out:</p>
-<ul>
-<li><strong>Email</strong>: <a href="mailto:joshua@meehl.org">joshua@meehl.org</a></li>
-<li><strong>LinkedIn</strong>: <a href="https://www.linkedin.com/in/meehl">linkedin.com/in/meehl</a></li>
-</ul>
+<section id="whats-next" class="level2">
+<h2 class="anchored" data-anchor-id="whats-next">What’s Next?</h2>
+<p>Having completed this project, I find myself at a crossroads. Do I:</p>
+<ol type="a">
+<li>Expand on this, perhaps finding the optimal route for other music-inspired challenges? (Beach Boy’s Kokomo, anyone?)</li>
+<li>Use my newfound skills for something practical, like a trip optimizer app?</li>
+<li>Finally get some sleep?</li>
+</ol>
+<p>Only time will tell. In the meantime, if you have any suggestions for improvements or just want to commiserate about the intersection of parenting, music, and data science, feel free to reach out. I’ll be here, probably humming “Alphabet of Nations” and dreaming of efficient flight paths.</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

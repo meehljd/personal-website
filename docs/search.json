@@ -37,100 +37,79 @@
   {
     "objectID": "projects/simulated-annealing.html",
     "href": "projects/simulated-annealing.html",
-    "title": "Annealing of Nations",
+    "title": "Annealing of Nations: Where Kids’ Music Meets Optimization Algorithms",
     "section": "",
-    "text": "An exploration of applying simulated annealing algorithms to optimize complex systems related to global data.\n\n\nThe “Annealing of Nations” project applies simulated annealing techniques to solve large-scale optimization problems in geopolitical and socio-economic data. By modeling nations and their interactions as a complex system, the project seeks to find optimal configurations that could lead to improved outcomes in areas such as trade, resource allocation, and diplomatic relations.\n\n\n\n\nOptimize Global Parameters: Utilize simulated annealing to find optimal solutions in a high-dimensional space representing nation-level data.\nAnalyze Algorithm Performance: Evaluate the effectiveness of simulated annealing compared to other optimization algorithms.\nProvide Insights: Generate actionable insights that could inform policy decisions or economic strategies.\n\n\n\n\n\nData Collection:\n\nGathered datasets on economic indicators, political alliances, trade agreements, and social metrics from various international databases.\n\nSimulated Annealing Algorithm:\n\nImplemented a custom simulated annealing algorithm in Python.\nDefined an energy function to evaluate the “cost” or “inefficiency” of a given configuration.\nAdjusted parameters such as initial temperature, cooling schedule, and stopping criteria for optimal performance.\n\nComparative Analysis:\n\nCompared results with other algorithms like genetic algorithms and gradient descent to benchmark performance.\n\nVisualization:\n\nUsed Matplotlib and Seaborn to create visual representations of the optimization process and results.\n\n\n\n\n\n\nEfficiency Gains:\n\nAchieved a significant reduction in computational time compared to exhaustive search methods.\nFound solutions that improved the optimization objective by up to X% (replace with actual figures).\n\nAlgorithm Performance:\n\nSimulated annealing outperformed other heuristic methods in escaping local minima.\n\nInsights:\n\nIdentified key factors that have the most impact on the optimization outcome, such as trade tariffs and resource distribution.\n\n\n\n\n\n\nProgramming Languages: Python\nLibraries:\n\nNumPy and Pandas for data manipulation.\nMatplotlib and Seaborn for data visualization.\nCustom implementation of simulated annealing algorithm.\n\nTools:\n\nJupyter Notebooks for interactive development.\nGit and GitHub for version control.\n\n\n\n\n\n\nHigh-Dimensional Data:\n\nManaged the complexity of multi-dimensional optimization by implementing dimensionality reduction techniques.\n\nData Quality:\n\nDealt with incomplete or inconsistent data entries by applying data cleaning and imputation methods.\n\nParameter Tuning:\n\nLearned the importance of hyperparameter tuning in the simulated annealing algorithm to balance exploration and exploitation.\n\n\n\n\n\n\nAlgorithm Enhancements:\n\nIncorporate machine learning techniques to improve the energy function.\nExplore parallel processing to further reduce computational time.\n\nExpanded Scope:\n\nApply the methodology to other complex systems like climate modeling or network optimization.\n\nCollaboration:\n\nSeek partnerships with academic institutions or policy think tanks to apply findings in real-world scenarios.\n\n\n\n\n\n\nGitHub: Annealing of Nations\nVisit the repository to explore the code, datasets, and detailed documentation of the project.\n\n\n\n\nIf you have any questions or would like to discuss potential collaborations, feel free to reach out:\n\nEmail: joshua@meehl.org\nLinkedIn: linkedin.com/in/meehl"
+    "text": "One challenge with having little ones is finding kids’ music that doesn’t slowly drive you crazy. My family enjoys the kids’ albums by the nerd rock group They Might Be Giants (TMBG). Their song “Alphabet of Nations” is quite catchy.\nAt the same time my family was listening to the TMBG albums, I was also studying optimization and search heuristics. I was fascinated by the traveling salesman problem (TSP) and the various algorithms used to solve it.\nAnd so, in a moment of what I can only describe as sleep-deprived inspiration (parents, you know what I’m talking about), I decided to combine these two seemingly unrelated interests. The result? A project that uses the Simulated Annealing algorithm to solve a Traveling Salesperson Problem based on the nations mentioned in TMBG’s “Alphabet of Nations”. Because why not?"
   },
   {
-    "objectID": "projects/simulated-annealing.html#overview",
-    "href": "projects/simulated-annealing.html#overview",
-    "title": "Annealing of Nations",
-    "section": "",
-    "text": "The “Annealing of Nations” project applies simulated annealing techniques to solve large-scale optimization problems in geopolitical and socio-economic data. By modeling nations and their interactions as a complex system, the project seeks to find optimal configurations that could lead to improved outcomes in areas such as trade, resource allocation, and diplomatic relations."
+    "objectID": "projects/simulated-annealing.html#the-challenge",
+    "href": "projects/simulated-annealing.html#the-challenge",
+    "title": "Annealing of Nations: Where Kids’ Music Meets Optimization Algorithms",
+    "section": "The Challenge",
+    "text": "The Challenge\nThe task was straightforward, if a bit eccentric: find the most efficient route to visit all the countries listed in the song. Here’s our illustrious itinerary:\nAlgeria, Bulgaria, Cambodia, Dominica, Egypt, France, Gambia, Hungary, Iran, Japan, Kazakhstan, Libya, Mongolia, Norway, Oman, Pakistan, Qatar, Russia, Suriname, Turkey, Uruguay, Vietnam, Xylokeriza (Greece), Yemen, Zimbabwe\nYou might notice that “Xylokeriza, Greece” seems out of place. That’s because the song actually mentions “West Xylophone”, which, last I checked, isn’t a recognized nation. Since “xylophone” is of Greek origins, I substituted it with a real place in Greece that has “xylo” in the name. Creative problem-solving at its finest.\nFor those curious about the musical inspiration behind this madness, you can find the video here. Just don’t blame me if it gets stuck in your head."
   },
   {
-    "objectID": "projects/simulated-annealing.html#objectives",
-    "href": "projects/simulated-annealing.html#objectives",
-    "title": "Annealing of Nations",
-    "section": "",
-    "text": "Optimize Global Parameters: Utilize simulated annealing to find optimal solutions in a high-dimensional space representing nation-level data.\nAnalyze Algorithm Performance: Evaluate the effectiveness of simulated annealing compared to other optimization algorithms.\nProvide Insights: Generate actionable insights that could inform policy decisions or economic strategies."
+    "objectID": "projects/simulated-annealing.html#the-results",
+    "href": "projects/simulated-annealing.html#the-results",
+    "title": "Annealing of Nations: Where Kids’ Music Meets Optimization Algorithms",
+    "section": "The Results",
+    "text": "The Results\nAfter letting the algorithm run, here’s what it came up with:\n\n\n\nOptimized Flight Routes Map\n\n\nConnect-the-dots world tour.\nAnd because no good project is complete without a graph, here’s how our trip cost evolved over time:\n\n\n\nTrip Cost per Iteration\n\n\nA visual representation of my sanity throughout this project\nAs you can see, we started with costs ranging from $9,000 to $15,000 per person. Thankfully, our trusty algorithm managed to bring it down to a more reasonable $6,000. Still not cheap, but hey, that’s the price of combining data science and musical geography."
   },
   {
-    "objectID": "projects/simulated-annealing.html#methods",
-    "href": "projects/simulated-annealing.html#methods",
-    "title": "Annealing of Nations",
-    "section": "",
-    "text": "Data Collection:\n\nGathered datasets on economic indicators, political alliances, trade agreements, and social metrics from various international databases.\n\nSimulated Annealing Algorithm:\n\nImplemented a custom simulated annealing algorithm in Python.\nDefined an energy function to evaluate the “cost” or “inefficiency” of a given configuration.\nAdjusted parameters such as initial temperature, cooling schedule, and stopping criteria for optimal performance.\n\nComparative Analysis:\n\nCompared results with other algorithms like genetic algorithms and gradient descent to benchmark performance.\n\nVisualization:\n\nUsed Matplotlib and Seaborn to create visual representations of the optimization process and results."
+    "objectID": "projects/simulated-annealing.html#the-method-to-the-madness",
+    "href": "projects/simulated-annealing.html#the-method-to-the-madness",
+    "title": "Annealing of Nations: Where Kids’ Music Meets Optimization Algorithms",
+    "section": "The Method to the Madness",
+    "text": "The Method to the Madness\nFor those interested in the technical details (and let’s face it, if you’ve read this far, you probably are), here’s how I put this together:\n\nFlight Data\nI repurposed some code from a previous project, the “Flight Deal Finder”, because why solve one problem when you can solve two? This code does the following:\n\nChoosing the busiest airport in each country.\nCreating a Google Sheet with these airports.\nUsing the Tiquila API via Kiwi.com to get flight prices, with some arbitrary rules to keep things interesting:\n\nCheapest one-way flights with up to 3 layovers\nFlight dates within 6 months of the query date\n\n\n\n\nOptimization\nThis is where the Simulated Annealing algorithm comes in. If you’re not familiar with it, imagine the process of forging a sword. Imagine heating metal to a high temperature so it becomes malleable, then slowly cooling it while hammering to remove imperfections. In simulated annealing, the “temperature” controls how freely the algorithm explores possible solutions, starting with random, wide exploration (high temperature) and gradually focusing on improving solutions (lower temperature). Just like how a blacksmith avoids cooling the metal too quickly to prevent cracks, the algorithm reduces randomness gradually to find an optimal solution without getting stuck in suboptimal ones. But here, instead of a sword, we have a travel itinerary. For the curious (or the insomniacs), there’s always the Wikipedia page.\nThe algorithm will randomly swap a pair of airports to change the route and compare the results to the previous route. If the new paths do not have available flights, the new route is rejected. If the new route is cheaper, it is kept. If the new route is more expensive, it is rejected with some probability of keeping it, based on the relative difference in the two routes’ performance, as well as the temperature parameter.\n\n\n\nTemperature Schedule\n\n\nThe algorithm going from hog-wild to tuckered-out"
   },
   {
-    "objectID": "projects/simulated-annealing.html#results",
-    "href": "projects/simulated-annealing.html#results",
-    "title": "Annealing of Nations",
-    "section": "",
-    "text": "Efficiency Gains:\n\nAchieved a significant reduction in computational time compared to exhaustive search methods.\nFound solutions that improved the optimization objective by up to X% (replace with actual figures).\n\nAlgorithm Performance:\n\nSimulated annealing outperformed other heuristic methods in escaping local minima.\n\nInsights:\n\nIdentified key factors that have the most impact on the optimization outcome, such as trade tariffs and resource distribution."
-  },
-  {
-    "objectID": "projects/simulated-annealing.html#technologies-used",
-    "href": "projects/simulated-annealing.html#technologies-used",
-    "title": "Annealing of Nations",
-    "section": "",
-    "text": "Programming Languages: Python\nLibraries:\n\nNumPy and Pandas for data manipulation.\nMatplotlib and Seaborn for data visualization.\nCustom implementation of simulated annealing algorithm.\n\nTools:\n\nJupyter Notebooks for interactive development.\nGit and GitHub for version control."
-  },
-  {
-    "objectID": "projects/simulated-annealing.html#challenges-and-learnings",
-    "href": "projects/simulated-annealing.html#challenges-and-learnings",
-    "title": "Annealing of Nations",
-    "section": "",
-    "text": "High-Dimensional Data:\n\nManaged the complexity of multi-dimensional optimization by implementing dimensionality reduction techniques.\n\nData Quality:\n\nDealt with incomplete or inconsistent data entries by applying data cleaning and imputation methods.\n\nParameter Tuning:\n\nLearned the importance of hyperparameter tuning in the simulated annealing algorithm to balance exploration and exploitation."
-  },
-  {
-    "objectID": "projects/simulated-annealing.html#future-work",
-    "href": "projects/simulated-annealing.html#future-work",
-    "title": "Annealing of Nations",
-    "section": "",
-    "text": "Algorithm Enhancements:\n\nIncorporate machine learning techniques to improve the energy function.\nExplore parallel processing to further reduce computational time.\n\nExpanded Scope:\n\nApply the methodology to other complex systems like climate modeling or network optimization.\n\nCollaboration:\n\nSeek partnerships with academic institutions or policy think tanks to apply findings in real-world scenarios."
-  },
-  {
-    "objectID": "projects/simulated-annealing.html#repository",
-    "href": "projects/simulated-annealing.html#repository",
-    "title": "Annealing of Nations",
-    "section": "",
-    "text": "GitHub: Annealing of Nations\nVisit the repository to explore the code, datasets, and detailed documentation of the project."
-  },
-  {
-    "objectID": "projects/simulated-annealing.html#contact",
-    "href": "projects/simulated-annealing.html#contact",
-    "title": "Annealing of Nations",
-    "section": "",
-    "text": "If you have any questions or would like to discuss potential collaborations, feel free to reach out:\n\nEmail: joshua@meehl.org\nLinkedIn: linkedin.com/in/meehl"
+    "objectID": "projects/simulated-annealing.html#whats-next",
+    "href": "projects/simulated-annealing.html#whats-next",
+    "title": "Annealing of Nations: Where Kids’ Music Meets Optimization Algorithms",
+    "section": "What’s Next?",
+    "text": "What’s Next?\nHaving completed this project, I find myself at a crossroads. Do I:\n\nExpand on this, perhaps finding the optimal route for other music-inspired challenges? (Beach Boy’s Kokomo, anyone?)\nUse my newfound skills for something practical, like a trip optimizer app?\nFinally get some sleep?\n\nOnly time will tell. In the meantime, if you have any suggestions for improvements or just want to commiserate about the intersection of parenting, music, and data science, feel free to reach out. I’ll be here, probably humming “Alphabet of Nations” and dreaming of efficient flight paths."
   },
   {
     "objectID": "projects/protein-engineering.html",
     "href": "projects/protein-engineering.html",
-    "title": "Protein Engineering",
+    "title": "Protein Engineering: Harnessing Machine Learning for Molecular Design",
     "section": "",
-    "text": "Developed an ML-based pipeline for enzyme development using large language models (LLMs) and optimization algorithms.\nPracticum Final Report\n\n\n\nObjective: Enhance enzyme functionality through predictive modeling and optimization.\nApproach:\n\nEvaluated protein language models (PLMs) for functional prediction.\nAnalyzed zero-shot prediction methods comparing mutant and wild-type sequences.\nImplemented Bayesian optimization and Gaussian processes.\n\n\n\n\n\n\nEfficiency Gain: Reduced discovery iterations by 2.2x.\nCost Savings: Projected to save over $580,000 per discovery campaign.\n\n\n\n\n\nLanguages: Python\nLibraries: PyTorch, Scikit-learn, GPytorch\nMethods: Bayesian Optimization, Gaussian Processes, Machine Learning\n\n(Add more details, visuals, or code snippets as appropriate)\n\n\n\n\nSimulated Annealing: projects/simulated-annealing.qmd\nCOVID DNA Clustering: projects/covid-dna-clustering.qmd\nMTG Analysis: You can link directly to mage.meehl.org or create a page describing the project and link to it."
+    "text": "Protein engineering is a fascinating field at the intersection of biology, chemistry, and computer science. It involves the design and modification of proteins to create new or enhanced functionalities. In this project, I explored the potential of using advanced machine learning models to improve the process of developing new proteins with enhanced properties.\nThis project was my practicum for my master’s degree in analytics at Georgia Tech, where I applied my data science skills to the field of protein engineering."
   },
   {
-    "objectID": "projects/protein-engineering.html#overview",
-    "href": "projects/protein-engineering.html#overview",
-    "title": "Protein Engineering",
-    "section": "",
-    "text": "Objective: Enhance enzyme functionality through predictive modeling and optimization.\nApproach:\n\nEvaluated protein language models (PLMs) for functional prediction.\nAnalyzed zero-shot prediction methods comparing mutant and wild-type sequences.\nImplemented Bayesian optimization and Gaussian processes."
+    "objectID": "projects/protein-engineering.html#the-challenge",
+    "href": "projects/protein-engineering.html#the-challenge",
+    "title": "Protein Engineering: Harnessing Machine Learning for Molecular Design",
+    "section": "The Challenge",
+    "text": "The Challenge\nThe task was to develop a computational pipeline to efficiently identify superior protein variants for a diverse set of proteins. This challenge is crucial in many areas of biotechnology, from developing new enzymes for industrial processes to creating better therapeutics.\nThe main obstacles in protein engineering are:\n\nThe high cost and time requirements of experimental testing. Ideally we can reduce the number of experiments needed to find the best protein variant. This also means we will typically have little or no functional data to start with.\nThe complex relationship between protein sequence and function. This is where LLM type models can really shine. We need to be able to predict a protein’s function given its sequence.\nThe vast search space of possible protein sequences. This is like finding a needle in a haystack the size of the universe. This is called the “combinatorial explosion” problem. We need to find the optimal protein variants in this massive fitness landscape.\n\nMy goal was to use machine learning to navigate this complex landscape more efficiently, reducing the time and resources needed to discover improved protein variants.\n The 3 main steps in my computational pipeline"
   },
   {
-    "objectID": "projects/protein-engineering.html#results",
-    "href": "projects/protein-engineering.html#results",
-    "title": "Protein Engineering",
-    "section": "",
-    "text": "Efficiency Gain: Reduced discovery iterations by 2.2x.\nCost Savings: Projected to save over $580,000 per discovery campaign."
+    "objectID": "projects/protein-engineering.html#the-method",
+    "href": "projects/protein-engineering.html#the-method",
+    "title": "Protein Engineering: Harnessing Machine Learning for Molecular Design",
+    "section": "The Method",
+    "text": "The Method\nFor those interested in the technical details, here’s how I approached this challenge:\n\nData: I used a dataset of 34 deep mutational scanning (DMS) studies, spanning 25 organisms and various protein functions.\nZero-shot Learning: I employed the Evolutionary Scale Modeling (ESM) family of transformer-based protein language models developed by Facebook AI Research. These models can make predictions about protein function without any experimental data.\nFew-shot Learning: Using the DMS experimental data, I trained various regression models (k-nearest neighbors, support vector machines, random forests, and ridge regression) on embeddings from the PLMs.\nGaussian Processes: To balance exploration and exploitation in my search for superior variants, I implemented Gaussian Process models that provide both predictions and uncertainty estimates.\nBayesian Optimization: I used a simplified Bayesian optimization approach to efficiently search the protein fitness landscape, leveraging the uncertainties provided by the GP models."
   },
   {
-    "objectID": "projects/protein-engineering.html#technologies-used",
-    "href": "projects/protein-engineering.html#technologies-used",
-    "title": "Protein Engineering",
-    "section": "",
-    "text": "Languages: Python\nLibraries: PyTorch, Scikit-learn, GPytorch\nMethods: Bayesian Optimization, Gaussian Processes, Machine Learning\n\n(Add more details, visuals, or code snippets as appropriate)\n\n\n\n\nSimulated Annealing: projects/simulated-annealing.qmd\nCOVID DNA Clustering: projects/covid-dna-clustering.qmd\nMTG Analysis: You can link directly to mage.meehl.org or create a page describing the project and link to it."
+    "objectID": "projects/protein-engineering.html#the-results",
+    "href": "projects/protein-engineering.html#the-results",
+    "title": "Protein Engineering: Harnessing Machine Learning for Molecular Design",
+    "section": "The Results",
+    "text": "The Results\nAfter developing and testing my computational pipeline, I found some key insights.\nZero-shot learning achieved a median Spearman rank correlation of ρ ≈ 0.52 between predicted and actual protein functionality.\n\n\n\nZero-Shot Correlation\n\n\nCorrelation between actual and predicted functional rank of an example protein.\nZero-shot learning with protein language models (PLMs) can reduce the effort required to find superior protein variants by nearly 50%.\n\n\n\nRound to Get Top Variants\n\n\nNumber of rounds to get top variants in DMS dataset for an example protein.\nFew-shot learning with the simple regression algorithms under-performs zero-shot learning. This is likely due to the small number of data points available for training.\n\n\n\nFew-Shot Correlation\n\n\nNumber of rounds to get top variants in DMS dataset for an example protein.\nThe Gaussian Process (GP) regression models start to outperform zero-shot predictions with more data, typically around 300 data points. The GP also outperforms the other few-shot simple regression models.\n\n\n\nGP Performance vs Training Data\n\n\nGP prediction performance as data draining size increases.\nAs modeled, using Bayesian Optimization (BO) with Gaussian Processes did not have a large improvement over point estimates. This bears further investigating.\n\n\n\nRound to Get Top Variants - BO\n\n\nNumber of rounds to get top variants in DMS dataset for an example protein using BO."
+  },
+  {
+    "objectID": "projects/protein-engineering.html#whats-next",
+    "href": "projects/protein-engineering.html#whats-next",
+    "title": "Protein Engineering: Harnessing Machine Learning for Molecular Design",
+    "section": "What’s Next?",
+    "text": "What’s Next?\nHaving completed this project, there are several exciting directions to explore:\n\nExpand the approach to a wider range of proteins and functions, potentially uncovering general principles of protein engineering.\nIntegrate structural information into the models to improve prediction accuracy.\nDevelop more sophisticated Bayesian optimization strategies for navigating the fitness landscape.\nApply this pipeline to real-world challenges in enzyme engineering or therapeutic protein design.\n\nRecently the ProteinGym was launched. It is a website that contains a collection of benchmarks and leaderboards for comparing models that predict protein mutation effects. It is the protein equivalent of Papers With Code. It is also a source of more mutational data, with DMS substitutions and indels, as well as mutational clinical data."
+  },
+  {
+    "objectID": "projects/protein-engineering.html#technical-details",
+    "href": "projects/protein-engineering.html#technical-details",
+    "title": "Protein Engineering: Harnessing Machine Learning for Molecular Design",
+    "section": "Technical Details",
+    "text": "Technical Details\nFor those who want to dive deeper into the nitty-gritty details, you can find the full technical report Practicum Final Report. It includes all the mathematical formulas, model architectures, and performance metrics for a comprehensive understanding of the project.\nThis project demonstrates the power of machine learning in accelerating protein engineering. By combining state-of-the-art language models with clever optimization strategies, we can dramatically reduce the time and cost associated with developing new protein variants. As these techniques continue to evolve, they promise to revolutionize fields from industrial biotechnology to personalized medicine."
   },
   {
     "objectID": "resume.html",
