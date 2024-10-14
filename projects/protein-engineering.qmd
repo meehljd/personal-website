@@ -20,8 +20,8 @@ The main obstacles in protein engineering are:
 
 My goal was to use machine learning to navigate this complex landscape more efficiently, reducing the time and resources needed to discover improved protein variants.
 
-![Computational Pipeline](..\images\projects\pe\comp_workflow.png)
-*The 3 main steps in my computational pipeline*
+![The 3 main steps in my computational pipeline](/images/projects/pe/comp_workflow.png){width=650 .lightbox}
+
 
 ## The Method
 
@@ -44,35 +44,26 @@ After developing and testing my computational pipeline, I found some key insight
 
 Zero-shot learning achieved a median Spearman rank correlation of ρ ≈ 0.52 between predicted and actual protein functionality.
 
-![Zero-Shot Correlation](..\images\projects\pe\rank_correlation_AMIE_PSEAE_Whitehead.png)
-
-*Correlation between actual and predicted functional rank of an example protein.*
+![Correlation between actual and predicted functional rank of zero-shot predictions for an example protein.](/images/projects/pe/rank_correlation_AMIE_PSEAE_Whitehead.png){width=450 .lightbox}
 
 
 Zero-shot learning with protein language models (PLMs) can reduce the effort required to find superior protein variants by nearly 50%.
 
-![Round to Get Top Variants](..\images\projects\pe\fitness_landscape_AMIE_PSEAE_Whitehead.png)
-
-*Number of rounds to get top variants in DMS dataset for an example protein.*
+![Number of rounds to get top variants in DMS dataset of zero-shot predictions for an example protein.](/images/projects/pe/fitness_landscape_AMIE_PSEAE_Whitehead.png){width=450 .lightbox}
 
 Few-shot learning with the simple regression algorithms under-performs zero-shot learning.  This is likely due to the small number of data points available for training.
 
-![Few-Shot Correlation](..\images\projects\pe\regression_best_train_hist.png)
-
-*Number of rounds to get top variants in DMS dataset for an example protein.*
+![Number of rounds to get top variants in DMS dataset of few-shot regression algorithms for an example protein.](/images/projects/pe/regression_best_train_hist.png){width=450 .lightbox}
 
 The Gaussian Process (GP) regression models start to outperform zero-shot predictions with more data, typically around 300 data points.  The GP also outperforms the other few-shot simple regression models.
 
-![GP Performance vs Training Data](..\images\projects\pe\gauss_best_train_hist.png)
-
-*GP prediction performance as data draining size increases.*
+![GP prediction performance as data draining size increases](/images/projects/pe/gauss_best_train_hist.png){width=450 .lightbox}
 
 As modeled, using Bayesian Optimization (BO) with Gaussian Processes did not have a 
 large improvement over point estimates.  This bears further investigating.
 
-![Round to Get Top Variants - BO](..\images\projects\pe\bo_fitness_landscape_AMIE_PSEAE_Whitehead.png)
+![Number of rounds to get top variants in DMS dataset for an example protein using BO](/images/projects/pe/bo_fitness_landscape_AMIE_PSEAE_Whitehead.png){width=450 .lightbox}
 
-*Number of rounds to get top variants in DMS dataset for an example protein using BO.*
 
 
 ## What's Next?
@@ -88,6 +79,6 @@ Recently the [ProteinGym](https://proteingym.org/) was launched.  It is a websit
 
 ## Technical Details
 
-For those who want to dive deeper into the nitty-gritty details, you can find the full technical report [Practicum Final Report](../files/Practicum_Final_Report.pdf). It includes all the mathematical formulas, model architectures, and performance metrics for a comprehensive understanding of the project.
+For those who want to dive deeper into the nitty-gritty details, you can find the full technical report [Practicum Final Report](/files/Practicum_Final_Report.pdf). It includes all the mathematical formulas, model architectures, and performance metrics for a comprehensive understanding of the project.
 
 This project demonstrates the power of machine learning in accelerating protein engineering. By combining state-of-the-art language models with clever optimization strategies, we can dramatically reduce the time and cost associated with developing new protein variants. As these techniques continue to evolve, they promise to revolutionize fields from industrial biotechnology to personalized medicine.

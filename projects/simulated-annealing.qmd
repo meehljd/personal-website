@@ -24,13 +24,13 @@ For those curious about the musical inspiration behind this madness, you can fin
 
 After letting the algorithm run, here's what it came up with:
 
-![Optimized Flight Routes Map](images/projects/sa/best_path.png)
+![Optimized Flight Routes Map](/images/projects/sa/best_path.png)
 
 *Connect-the-dots world tour.*
 
 And because no good project is complete without a graph, here's how our trip cost evolved over time:
 
-![Trip Cost per Iteration](images/projects/sa/costs.png)
+![Trip Cost per Iteration](/images/projects/sa/costs.png)
 
 *A visual representation of my sanity throughout this project*
 
