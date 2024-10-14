@@ -19,9 +19,9 @@ I love diving into the intersection of technology and life sciences. Whether it'
 ## Projects
 Here's a quick reference to some of my recent projects:
 
-- **Protein Engineering Pipeline**: Developed an ML-based pipeline for enzyme development using large language models (LLMs) and optimization algorithms.
-- **Simulated Annealing Optimization**: Applied simulated annealing algorithms to optimize complex systems, such as in the [Annealing of Nations](projects/simulated-annealing.qmd) project.
-- **COVID-19 DNA Clustering**: Analyzed and clustered DNA sequences to understand mutation patterns in SARS-CoV-2.
+- **[Protein Engineering Pipeline](projects/protein-engineering.qmd)**: Developed an ML-based pipeline for enzyme development using large language models (LLMs) and optimization algorithms.
+- **[Simulated Annealing Optimization](projects/simulated-annealing.qmd)**: Applied simulated annealing algorithms to optimize the traveling salesperson problem with a whimsical twist.
+- **[COVID-19 cDNA Clustering](projects/simulated-annealing.qmd)**: Analyzed and clustered cDNA sequences to understand mutation patterns in SARS-CoV-2.
 - **Oligo Production Failure Prediction**: Enhanced predictive models for oligo production failures, leading to improved margins and reduced production failures.
 - **MTG Analysis**: Applied advanced data science and machine learning techniques to analyze Magic: The Gathering on my website [The Data Mage](https://mage.meehl.org).
 

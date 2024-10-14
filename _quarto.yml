@@ -19,7 +19,7 @@ website:
           - text: Simulated Annealing
             href: projects/simulated-annealing.qmd
           - text: COVID Strain Clustering
-            href: projects/covid-strain-clustering.qmd
+            href: projects/covid-seq-clustering.qmd
           - text: The Data Mage
             href: https://mage.meehl.org
       - text: Contact
