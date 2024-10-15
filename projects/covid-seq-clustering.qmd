@@ -43,9 +43,10 @@ At this point I also dropped all fully conserved positions (`.`), as they would 
 
 ::: {#fig-elephants layout-ncol=2}
 ![Raw MSA](/images/projects/csc/sequences_head.png){#fig-1 max-width=params.img_max_width .lightbox}
+
 ![Cleaned MSA](/images/projects/csc/sequences_clean_head.png){#fig-2 max-width=params.img_max_width .lightbox}
 
-Visualization of MSA sequences before and after cleaning, showing first 500 positions. Left is color scaled to have missing or fully conserved values in black and other values in lighter gray.  Right is rescaled to have A in white and T in black.
+Visualization of MSA sequences before and after cleaning, showing first 500 positions. (a) is color scaled to have missing or fully conserved values in black and other values in lighter gray.  (b) is rescaled to have A in white and T in black.
 :::
 
 Next I calculated the entropy of the MSA for each position.  This gives us an idea of how variable the sequence positions are.  We get a sense of baseline noise of random mutations, as well as positions that have low conservation across major strains.
@@ -104,6 +105,7 @@ Both approaches find 5 major strains of SARS-CoV-2 sequences.  As we increase th
 ::: {#fig-elbows layout-ncol=2}
 
 ![Spectral Clustering](/images/projects/csc/elbow_spectral.png){#fig-elb-spec max-width=params.img_max_width .lightbox}
+
 ![ISOMAP](/images/projects/csc/elbow_isomap.png){#fig-elb-iso max-width=params.img_max_width .lightbox}
 
 Elbow diagrams for spectral clustering and ISOMAP.  Both show a break at 5 $k$=5.
@@ -116,8 +118,11 @@ If we look at the adjacency matrix for spectral clustering, we can see the effec
 ::: {#fig-adj-mtx layout-ncol=4}
 
 ![$k$=1](/images/projects/csc/adj_sorted_1.png){#fig-adj1 max-with=200px .lightbox}
+
 ![$k$=5](/images/projects/csc/adj_sorted_5.png){#fig-adj5 max-with=200px .lightbox}
+
 ![$k$=7](/images/projects/csc/adj_sorted_7.png){#fig-adj7 max-with=200px .lightbox}
+
 ![$k$=9](/images/projects/csc/adj_sorted_9.png){#fig-adj9 max-with=200px .lightbox}
 
 Adjacency matrix after spectral clustering for $k$ clusters.
@@ -128,8 +133,11 @@ Looking at the sequences, we again see that there are 5 major strains, with each
 ::: {#fig-spec-seq layout-ncol=4}
 
 ![$k$=1](/images/projects/csc/sequences_sorted_1.png){#fig-adj1 max-with=150px .lightbox}
+
 ![$k$=5](/images/projects/csc/sequences_sorted_5.png){#fig-adj5 max-with=150px .lightbox}
+
 ![$k$=7](/images/projects/csc/sequences_sorted_7.png){#fig-adj7 max-with=150px .lightbox}
+
 ![$k$=9](/images/projects/csc/sequences_sorted_9.png){#fig-adj9 max-with=150px .lightbox}
 
 MSA sequences after sorting for the $k$ spectral clusters.
@@ -140,6 +148,7 @@ We can also look at the clusters in the reduced spectral space.  Eigenvectors 1 
 ::: {#fig-spec-dims layout-ncol=2}
 
 ![Eigenvectors 1 & 2](/images/projects/csc/spectral_eigs_1_2.png){#fig-elb-spec max-width=params.img_max_width .lightbox}
+
 ![Eigenvectors 4 & 2](/images/projects/csc/spectral_eigs_4_2.png){#fig-elb-iso max-width=params.img_max_width .lightbox}
 
 Visualization of the eigenvectors.  Color coded by cluster where $k=7$.  Note the subdivision of sub-clusters on the left of eigenvector 4.
@@ -152,8 +161,11 @@ The ISOMAP results are similar to the spectral clustering result.  We see 5 majo
 ::: {#fig-geo-mtx layout-ncol=4}
 
 ![$k$=1](/images/projects/csc/adj_sorted_iso_1.png){#fig-adj1 max-with=200px .lightbox}
+
 ![$k$=5](/images/projects/csc/adj_sorted_iso_5.png){#fig-adj5 max-with=200px .lightbox}
+
 ![$k$=7](/images/projects/csc/adj_sorted_iso_7.png){#fig-adj7 max-with=200px .lightbox}
+
 ![$k$=9](/images/projects/csc/adj_sorted_iso_9.png){#fig-adj9 max-with=200px .lightbox}
 
 Geodesic distance matrix after ISOMAP for $k$ clusters.
@@ -164,8 +176,11 @@ Next we can see the clustering of the sequences.
 ::: {#fig-iso-seq layout-ncol=4}
 
 ![$k$=1](/images/projects/csc/sequences_sorted_iso_1.png){#fig-adj1 max-with=150px .lightbox}
+
 ![$k$=5](/images/projects/csc/sequences_sorted_iso_5.png){#fig-adj5 max-with=150px .lightbox}
+
 ![$k$=7](/images/projects/csc/sequences_sorted_iso_7.png){#fig-adj7 max-with=150px .lightbox}
+
 ![$k$=9](/images/projects/csc/sequences_sorted_iso_9.png){#fig-adj9 max-with=150px .lightbox}
 
 MSA sequences after sorting for the $k$ ISOMAP clusters.

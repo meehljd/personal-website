@@ -2,6 +2,9 @@
 title: "Annealing of Nations: Where Kids' Music Meets Optimization Algorithms"
 title-block: false
 date: December 20, 2021
+params:
+  img_width: "85%"
+  img_max_width: "450px"
 ---
 
 One challenge with having little ones is finding kids' music that doesn't slowly drive you crazy. My family enjoys the kids' albums by the nerd rock group They Might Be Giants (TMBG). Their song "Alphabet of Nations" is quite catchy.
@@ -24,15 +27,11 @@ For those curious about the musical inspiration behind this madness, you can fin
 
 After letting the algorithm run, here's what it came up with:
 
-![Optimized Flight Routes Map](/images/projects/sa/best_path.png)
-
-*Connect-the-dots world tour.*
+![Final trip route.](/images/projects/sa/best_path.png)
 
 And because no good project is complete without a graph, here's how our trip cost evolved over time:
 
-![Trip Cost per Iteration](/images/projects/sa/costs.png)
-
-*A visual representation of my sanity throughout this project*
+![Cost of trip per iteration.](/images/projects/sa/costs.png)
 
 As you can see, we started with costs ranging from $9,000 to $15,000 per person. Thankfully, our trusty algorithm managed to bring it down to a more reasonable $6,000. Still not cheap, but hey, that's the price of combining data science and musical geography.
 
@@ -56,9 +55,7 @@ This is where the Simulated Annealing algorithm comes in. If you're not familiar
 
 The algorithm will randomly swap a pair of airports to change the route and compare the results to the previous route. If the new paths do not have available flights, the new route is rejected. If the new route is cheaper, it is kept. If the new route is more expensive, it is rejected with some probability of keeping it, based on the relative difference in the two routes' performance, as well as the temperature parameter.
 
-![Temperature Schedule](images/projects/sa/schedule.png)
-
-*The algorithm going from hog-wild to tuckered-out*
+![Temperature Schedule](/images/projects/sa/schedule.png)
 
 ## What's Next?
 

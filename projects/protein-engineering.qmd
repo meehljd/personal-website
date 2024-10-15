@@ -6,7 +6,7 @@ date: April 10, 2024
 
 Protein engineering is a fascinating field at the intersection of biology, chemistry, and computer science. It involves the design and modification of proteins to create new or enhanced functionalities. In this project, I explored the potential of using advanced machine learning models to improve the process of developing new proteins with enhanced properties.
 
-This project was my practicum for my master's degree in analytics at Georgia Tech, where I applied my data science skills to the field of protein engineering.
+This project was my practicum for my master's degree in analytics at Georgia Tech, where I applied my data science skills to the field of protein engineering.  You can view the full technical report [here](/files/Practicum_Final_Report.pdf).
 
 ## The Challenge
 
@@ -20,7 +20,7 @@ The main obstacles in protein engineering are:
 
 My goal was to use machine learning to navigate this complex landscape more efficiently, reducing the time and resources needed to discover improved protein variants.
 
-![The 3 main steps in my computational pipeline](/images/projects/pe/comp_workflow.png){width=650 .lightbox}
+![The 3 main steps in my computational pipeline.](/images/projects/pe/comp_workflow.png){width=100% max-width=650px .lightbox}
 
 
 ## The Method
@@ -44,25 +44,25 @@ After developing and testing my computational pipeline, I found some key insight
 
 Zero-shot learning achieved a median Spearman rank correlation of ρ ≈ 0.52 between predicted and actual protein functionality.
 
-![Correlation between actual and predicted functional rank of zero-shot predictions for an example protein.](/images/projects/pe/rank_correlation_AMIE_PSEAE_Whitehead.png){width=450 .lightbox}
+![Correlation between actual and predicted functional rank of zero-shot predictions for an example protein.](/images/projects/pe/rank_correlation_AMIE_PSEAE_Whitehead.png){width=65% max-width=450 .lightbox}
 
 
 Zero-shot learning with protein language models (PLMs) can reduce the effort required to find superior protein variants by nearly 50%.
 
-![Number of rounds to get top variants in DMS dataset of zero-shot predictions for an example protein.](/images/projects/pe/fitness_landscape_AMIE_PSEAE_Whitehead.png){width=450 .lightbox}
+![Number of rounds to get top variants in DMS dataset of zero-shot predictions for an example protein.](/images/projects/pe/fitness_landscape_AMIE_PSEAE_Whitehead.png){width=65% max-width=450 .lightbox}
 
 Few-shot learning with the simple regression algorithms under-performs zero-shot learning.  This is likely due to the small number of data points available for training.
 
-![Number of rounds to get top variants in DMS dataset of few-shot regression algorithms for an example protein.](/images/projects/pe/regression_best_train_hist.png){width=450 .lightbox}
+![Number of rounds to get top variants in DMS dataset of few-shot regression algorithms for an example protein.](/images/projects/pe/regression_best_train_hist.png){width=65% max-width=450 .lightbox}
 
 The Gaussian Process (GP) regression models start to outperform zero-shot predictions with more data, typically around 300 data points.  The GP also outperforms the other few-shot simple regression models.
 
-![GP prediction performance as data draining size increases](/images/projects/pe/gauss_best_train_hist.png){width=450 .lightbox}
+![GP prediction performance as data draining size increases](/images/projects/pe/gauss_best_train_hist.png){width=65% max-width=450 .lightbox}
 
 As modeled, using Bayesian Optimization (BO) with Gaussian Processes did not have a 
 large improvement over point estimates.  This bears further investigating.
 
-![Number of rounds to get top variants in DMS dataset for an example protein using BO](/images/projects/pe/bo_fitness_landscape_AMIE_PSEAE_Whitehead.png){width=450 .lightbox}
+![Number of rounds to get top variants in DMS dataset for an example protein using BO](/images/projects/pe/bo_fitness_landscape_AMIE_PSEAE_Whitehead.png){width=65% max-width=450 .lightbox}
 
 
 
@@ -79,6 +79,6 @@ Recently the [ProteinGym](https://proteingym.org/) was launched.  It is a websit
 
 ## Technical Details
 
-For those who want to dive deeper into the nitty-gritty details, you can find the full technical report [Practicum Final Report](/files/Practicum_Final_Report.pdf). It includes all the mathematical formulas, model architectures, and performance metrics for a comprehensive understanding of the project.
+For those who want to dive deeper into the nitty-gritty details, here is the [Practicum Final Report](/files/Practicum_Final_Report.pdf). It includes all the mathematical formulas, model architectures, and performance metrics for a comprehensive understanding of the project.
 
 This project demonstrates the power of machine learning in accelerating protein engineering. By combining state-of-the-art language models with clever optimization strategies, we can dramatically reduce the time and cost associated with developing new protein variants. As these techniques continue to evolve, they promise to revolutionize fields from industrial biotechnology to personalized medicine.
