@@ -2,10 +2,15 @@
 title: "Covid Sequence Clustering"
 title-block: false
 date: Feb 5, 2022
+params:
+  img_width: "85%"
+  img_max_width: "450px"
 ---
 
 
-The SARS-CoV-2 virus is an RNA virus.  These types of viruses often mutate, due to the relative instability of RNA sequences.  This results in many strains of the virus, some of which are more infectious than others.  In this project, I compare machine learning techniques for clustering of cDNA sequences.
+In this project, I compare machine learning techniques for clustering of SARS-CoV-2 cDNA sequences by variants.
+
+At this point the whole world has had a crash course in virology, but to recap, the SARS-CoV-2 virus is an RNA virus.  These types of viruses often mutate, due to the relative instability of RNA sequences.  This results in many strains of the virus, some of which are more infectious than others.  
 
 For those who want to dive deeper into the nitty-gritty details, you can find the notebooks in the [GitHub repository](https://github.com/meehljd/covid-seqs-clustering).
 
@@ -15,7 +20,7 @@ There are two items we need to address with clustering of cDNA sequences.  First
 
 To challenge myself, I will implement clustering solutions I currently use.  Typically I would first do a literature search to find state-of-the-art approaches, but want to solve this problem with my own approaches.
 
-Also, I will avoid libraries like `Biopython` that are specifically designed for bioinformatics.  Instead I will use raw python and `numpy` to manipulate sequences.  For the linear algebra of the clustering techniques, I will use solely `numpy` and only use `sklearn` for some convenience functions.  Again, this is to challenge myself to implement algorithms from scratch where I would typically use 3rd party libraries.
+Also, I will avoid libraries like `Biopython` that are specifically designed for bioinformatics.  Instead I will use raw python and `numpy` to manipulate sequences.  For the linear algebra of the clustering techniques, I will use solely `numpy` and only use `sklearn` for some convenience functions.  Again, this is to challenge myself to implement algorithms from scratch where I would typically use 3rd party libraries.  This is reinventing the wheel, but sometimes it's worth it to get that sense of accomplishment.
 
 ## The Data
 
@@ -36,19 +41,9 @@ This left me with sequences that contained missing (`-`) or indeterminate (`N`) 
 At this point I also dropped all fully conserved positions (`.`), as they would not contribute to the clustering.  This left me with a 400 x 17,463 array.
 
 
-<!-- <figure>
-    <div style="display: flex; justify-content: flex-start; gap: 5%">
-    <img src="/images/projects/csc/sequences_head.png" alt="Raw Sequences" style="width: 45%;  max-width: 350px;"/>      
-    <img src="/images/projects/csc/sequences_clean_head.png" alt="Raw Sequences" style="width: 45%; max-width: 350px;"/>
-    </div>
-<figcaption>Visualization of MSA sequences before and after cleaning, showing first 500 positions. Left is color scaled to have missing or fully conserved values in black and other values in lighter gray.  Right is rescaled to have A in white and T in black.</figcaption>
-</figure> -->
-
 ::: {#fig-elephants layout-ncol=2}
-
-![Surus](/images/projects/csc/sequences_head.png){#fig-1 .lightbox}
-
-![Hanno](/images/projects/csc/sequences_clean_head.png){#fig-2}
+![Raw MSA](/images/projects/csc/sequences_head.png){#fig-1 max-width=params.img_max_width .lightbox}
+![Cleaned MSA](/images/projects/csc/sequences_clean_head.png){#fig-2 max-width=params.img_max_width .lightbox}
 
 Visualization of MSA sequences before and after cleaning, showing first 500 positions. Left is color scaled to have missing or fully conserved values in black and other values in lighter gray.  Right is rescaled to have A in white and T in black.
 :::
@@ -57,30 +52,22 @@ Next I calculated the entropy of the MSA for each position.  This gives us an id
 
 Note for the entropy calculation, I used $log_4$ to account for the number of nucleotides, although hte convention is $log_2$ for bits.  To me this makes more sense, since DNA is quaternary, not binary.  
 
-<figure>
-<img src="/images/projects/csc/entropy.png" alt="Raw Sequences" style="width: 100%; max-width: 450;"/>
-<figcaption>Plot of the entropy per MSA position.  Zoomed to show detail.</figcaption>
-</figure>
+![Entropy per MSA position.  Zoomed to show detail.](/images/projects/csc/entropy.png){width=params.img_width max-width=params.img_max_width .lightbox}
 
 Most positions are fully conserved with an entropy of 0.  Some positions have small entropy values, representing positions that are conserved with occasional random mutations.  Some positions have high entropy values, representing positions that are highly variable and may indicate mutations across major strains.
 
 Next I plotted a histogram of the entropy values to visualize the random mutations versus the major strain mutations.  We can see below the distribution is multimodal.  I put a cutoff threshold at 0.145, which is at the right tail of the random mutation distribution.  This cutoff will be used to filter out positions that are not conserved across major strains.  Future work could look at fitting a mixture model to the entropy distribution to find the optimal cutoff.
 
-<img src="/images/projects/csc/entropy_hist.png" alt="Raw Sequences" style="width: 95%; max-width: 450;"/>
 
-*Histogram of the entropy per MSA position.  The left mode is random mutations and the other modes are mutations of major strains.*
+![Histogram of the entropy per MSA position.  The left mode is random mutations and the other modes are mutations of major strains.](/images/projects/csc/entropy.png){width=params.img_width max-width=params.img_max_width .lightbox}
 
 After trimming the MSA to remove low entropy positions, I was left with a 400 x 110 array.  This is a good size for clustering, as it is a good balance between having enough data to find clusters and not having too much data to be computationally expensive.
 
-<div style="display: flex; justify-content: flex-start; gap: 0%">
-    <img src="/images/projects/csc/sequences_trim.png" alt="Raw Sequences" style="width: 25%; max-width: 150;"/>      
-</div>
-
-*Visualization of MSA sequences after trimming.  Color scale based on A (lightest), C, G, T (darkest)*
+![Visualization of MSA sequences after trimming.  Color scale based on A (lightest), C, G, T (darkest).](/images/projects/csc/sequences_trim.png){width=25% max-width=150px .lightbox}
 
 ### Similarity Measure
 
-The next step in clustering will be to generate a similarity data structure from the sequence data.  I will use the Hamming distance as the distance metric.  This is a good distance metric for sequences since it works with discrete categorical data.  For a pair of sequences, the Hamming distance will be the number of positions where the sequences have different nucleotides. 
+Now onto the exciting world of similarity measures!  The next step in clustering will be to generate a similarity data structure from the sequence data.  I will use the Hamming distance as the distance metric.  This is a good distance metric for sequences since it works with discrete categorical data.  For a pair of sequences, the Hamming distance will be the number of positions where the sequences have different nucleotides. 
 
 The trick with Hamming distance is that it gives us a relative similarity between sequence pairs, but not on an absolute scale.  We can address this issue by building a graph of the sequences, using the similarity as edge weights.  This gives us a good sense of the local structure of the data.  We will represent the graph as an adjacency matrix.
 
@@ -104,9 +91,9 @@ I tried both the standard Laplacian, $L = D - A$, and the normalized Laplacian, 
 
 For clustering, I used classic $k$-means.  I validated the choice of $k$ with visualizations of the elbow diagram, adjacency matrix, MSA sequences, and eigenvectors.
 
-#### ISOMAP Clustering
+#### Clustering with ISOMAP
 
-For the ISOMAP clustering, I calculated the geodesic distance matrix $D2$ from the graph by finding the shortest path between each pair of sequences.  I next center the matrix using the centering matrix $H$.  We then select the $n$ largest eigenvalues to perform multidimensional reductions (MDS), resulting in a reduced representation matrix $Z$.
+For the ISOMAP, I calculated the geodesic distance matrix $D2$ from the graph by finding the shortest path between each pair of sequences.  I next center the matrix using the centering matrix $H$.  We then select the $n$ largest eigenvalues to perform multidimensional reductions (MDS), resulting in a reduced representation matrix $Z$.
 
 I cluster the matrix $Z$ with $k$-means and then validate the clusters like with spectral clustering.
 
@@ -114,80 +101,80 @@ I cluster the matrix $Z$ with $k$-means and then validate the clusters like with
 
 Both approaches find 5 major strains of SARS-CoV-2 sequences.  As we increase the $k$ value, the major strains clusters get subdivided into outlier sequences and sub-strain clusters. 
 
-<div style="display: flex; justify-content: flex-start; gap: 5%;">
-    <img src="/images/projects/csc/elbow_spectral.png" alt="Raw Sequences" style="width: 45%; max-width: 350px;"/>      
-    <img src="/images/projects/csc/elbow_isomap.png" alt="Raw Sequences" style="width: 45%; max-width: 350px;"/>
-</div>
+::: {#fig-elbows layout-ncol=2}
 
-*Elbow diagrams for spectral clustering (left) and ISOMAP (right).*
+![Spectral Clustering](/images/projects/csc/elbow_spectral.png){#fig-elb-spec max-width=params.img_max_width .lightbox}
+![ISOMAP](/images/projects/csc/elbow_isomap.png){#fig-elb-iso max-width=params.img_max_width .lightbox}
+
+Elbow diagrams for spectral clustering and ISOMAP.  Both show a break at 5 $k$=5.
+:::
 
 ### Spectral Clustering
 
 If we look at the adjacency matrix for spectral clustering, we can see the effects of the number of clusters.  It make five clusters well.  Going beyond five clusters, we see the most heterogenous cluster breaking into into sub-clusters.
 
+::: {#fig-adj-mtx layout-ncol=4}
 
-<div style="display: flex; justify-content: flex-start; gap: 0%">
-    <img src="/images/projects/csc/adj_sorted_1.png" alt="Raw Sequences" style="width: 25%; max-width: 200px;"/>      
-    <img src="/images/projects/csc/adj_sorted_5.png" alt="Raw Sequences" style="width: 25%; max-width: 200px;"/>
-    <img src="/images/projects/csc/adj_sorted_7.png" alt="Raw Sequences" style="width: 25%; max-width: 200px;"/>
-    <img src="/images/projects/csc/adj_sorted_9.png" alt="Raw Sequences" style="width: 25%; max-width: 200px;"/>
-</div>
+![$k$=1](/images/projects/csc/adj_sorted_1.png){#fig-adj1 max-with=200px .lightbox}
+![$k$=5](/images/projects/csc/adj_sorted_5.png){#fig-adj5 max-with=200px .lightbox}
+![$k$=7](/images/projects/csc/adj_sorted_7.png){#fig-adj7 max-with=200px .lightbox}
+![$k$=9](/images/projects/csc/adj_sorted_9.png){#fig-adj9 max-with=200px .lightbox}
 
-*Adjacency matrix after spectral clustering for $k$ clusters.*
+Adjacency matrix after spectral clustering for $k$ clusters.
+:::
 
 Looking at the sequences, we again see that there are 5 major strains, with each strain having different levels of heterogeneity.
 
-<div style="display: flex; justify-content: flex-start; gap: 0%">
-    <img src="/images/projects/csc/sequences_sorted_1.png" alt="Raw Sequences" style="width: 25%; max-width: 150px;"/>      
-    <img src="/images/projects/csc/sequences_sorted_5.png" alt="Raw Sequences" style="width: 25%; max-width: 150px;"/>
-    <img src="/images/projects/csc/sequences_sorted_7.png" alt="Raw Sequences" style="width: 25%; max-width: 150px;"/>
-    <img src="/images/projects/csc/sequences_sorted_9.png" alt="Raw Sequences" style="width: 25%; max-width: 150px;"/>
-</div>
+::: {#fig-spec-seq layout-ncol=4}
 
-*MSA sequences after sorting for the $k$ spectral clusters.*
+![$k$=1](/images/projects/csc/sequences_sorted_1.png){#fig-adj1 max-with=150px .lightbox}
+![$k$=5](/images/projects/csc/sequences_sorted_5.png){#fig-adj5 max-with=150px .lightbox}
+![$k$=7](/images/projects/csc/sequences_sorted_7.png){#fig-adj7 max-with=150px .lightbox}
+![$k$=9](/images/projects/csc/sequences_sorted_9.png){#fig-adj9 max-with=150px .lightbox}
+
+MSA sequences after sorting for the $k$ spectral clusters.
+:::
 
 We can also look at the clusters in the reduced spectral space.  Eigenvectors 1 and 2 show good separation among the 5 clusters.  On eigenvector 4, we see separation of one  cluster into sub-clusters.
 
+::: {#fig-spec-dims layout-ncol=2}
 
-<div style="display: flex; justify-content: flex-start; gap: 0%;">
-    <img src="/images/projects/csc/spectral_eigs_1_2.png" alt="Raw Sequences" style="width: 50%; max-width: 450px;"/>
-    <img src="/images/projects/csc/spectral_eigs_4_2.png" alt="Raw Sequences" style="width: 50%; max-width: 450px;"/>      
-</div>
+![Eigenvectors 1 & 2](/images/projects/csc/spectral_eigs_1_2.png){#fig-elb-spec max-width=params.img_max_width .lightbox}
+![Eigenvectors 4 & 2](/images/projects/csc/spectral_eigs_4_2.png){#fig-elb-iso max-width=params.img_max_width .lightbox}
 
-*Visualization of the eigenvectors.  Color coded by cluster where $k=7$.  Note the subdivision of sub-clusters on the left of eigenvector 4.*
-
+Visualization of the eigenvectors.  Color coded by cluster where $k=7$.  Note the subdivision of sub-clusters on the left of eigenvector 4.
+:::
 
 ### ISOMAP
 
 The ISOMAP results are similar to the spectral clustering result.  We see 5 major strains, with each strain having different levels of heterogeneity.  At $k$=9, the ISOMAP does a better job of separating the sub-strains, as we can see in the geodesic distance matrix below.
 
+::: {#fig-geo-mtx layout-ncol=4}
 
-<div style="display: flex; justify-content: flex-start; gap: 0%">
-    <img src="/images/projects/csc/adj_sorted_iso_1.png" alt="Raw Sequences" style="width: 25%; max-width: 200px;"/>      
-    <img src="/images/projects/csc/adj_sorted_iso_5.png" alt="Raw Sequences" style="width: 25%; max-width: 200px;"/>
-    <img src="/images/projects/csc/adj_sorted_iso_7.png" alt="Raw Sequences" style="width: 25%; max-width: 200px;"/>
-    <img src="/images/projects/csc/adj_sorted_iso_9.png" alt="Raw Sequences" style="width: 25%; max-width: 200px;"/>
-</div>
+![$k$=1](/images/projects/csc/adj_sorted_iso_1.png){#fig-adj1 max-with=200px .lightbox}
+![$k$=5](/images/projects/csc/adj_sorted_iso_5.png){#fig-adj5 max-with=200px .lightbox}
+![$k$=7](/images/projects/csc/adj_sorted_iso_7.png){#fig-adj7 max-with=200px .lightbox}
+![$k$=9](/images/projects/csc/adj_sorted_iso_9.png){#fig-adj9 max-with=200px .lightbox}
 
-*Geodesic distance matrix after ISOMAP clustering for $k$ clusters.*
+Geodesic distance matrix after ISOMAP for $k$ clusters.
+:::
 
 Next we can see the clustering of the sequences.
 
-<div style="display: flex; justify-content: flex-start; gap: 0%">
-    <img src="/images/projects/csc/sequences_sorted_iso_1.png" alt="Raw Sequences" style="width: 25%; max-width: 150px;"/>      
-    <img src="/images/projects/csc/sequences_sorted_iso_5.png" alt="Raw Sequences" style="width: 25%; max-width: 150px;"/>
-    <img src="/images/projects/csc/sequences_sorted_iso_7.png" alt="Raw Sequences" style="width: 25%; max-width: 150px;"/>
-    <img src="/images/projects/csc/sequences_sorted_iso_9.png" alt="Raw Sequences" style="width: 25%; max-width: 150px;"/>
-</div>
+::: {#fig-iso-seq layout-ncol=4}
 
-*MSA sequences after sorting for the $k$ ISOMAP clusters.*
+![$k$=1](/images/projects/csc/sequences_sorted_iso_1.png){#fig-adj1 max-with=150px .lightbox}
+![$k$=5](/images/projects/csc/sequences_sorted_iso_5.png){#fig-adj5 max-with=150px .lightbox}
+![$k$=7](/images/projects/csc/sequences_sorted_iso_7.png){#fig-adj7 max-with=150px .lightbox}
+![$k$=9](/images/projects/csc/sequences_sorted_iso_9.png){#fig-adj9 max-with=150px .lightbox}
+
+MSA sequences after sorting for the $k$ ISOMAP clusters.
+:::
 
 We can visualize the clusters in the reduced ISOMAP space.  We see good separation among the 5 clusters, with further separation of some sub-clusters when $k$=7.
 
+![Visualization of the ISOMAP reduced dimensions.  Color coded by cluster where $k=7$.](/images/projects/csc/2D_isomap_7.png){width=params.img_width max-width=params.img_max_width .lightbox}
 
-<img src="/images/projects/csc/2D_isomap_7.png" alt="Raw Sequences" style="width: 95%; max-width: 450;"/>
-
-*Visualization of the ISOMAP reduced dimensions.  Color coded by cluster where $k=7$.*
 
 ## Conclusion
 
@@ -195,7 +182,7 @@ Both the spectral clustering and ISOMAP approaches worked well for clustering th
 
 Further work could be done to identify the sensitive of the results to the data cleaning thresholds.  Also, the entropy cutoff could be optimized by fitting a mixture model to the entropy distribution.  Finally, the clustering algorithms could be optimized for speed and memory usage.
 
-The clustering of the strains also raises questions of plylogeny.  The clustering could be used to build a phylogenetic tree of the strains.  This could be done by using the Hamming distance as a measure of genetic distance between the strains.  The tree could be built using a variety of phylogenetic tree algorithms, such as UPGMA or neighbor joining.
+The clustering of the strains also raises questions of phylogeny.  The clustering could be used to build a phylogenetic tree of the strains.  This could be done by using the Hamming distance as a measure of genetic distance between the strains.  The tree could be built using a variety of phylogenetic tree algorithms, such as UPGMA or neighbor joining.  Or we could drop clustering altogether and model the viral evolution as part of a Ornstein-Uhlenbeck process with stochastic differential equations.
 
 I hope this project has given you a good overview of how to cluster cDNA sequences.  If you have any questions or suggestions, please feel free to reach out to me.
 
