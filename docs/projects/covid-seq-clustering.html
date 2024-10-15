@@ -293,14 +293,14 @@ Figure&nbsp;1: Visualization of MSA sequences before and after cleaning, showing
 <p>Next I plotted a histogram of the entropy values to visualize the random mutations versus the major strain mutations. We can see below the distribution is multimodal. I put a cutoff threshold at 0.145, which is at the right tail of the random mutation distribution. This cutoff will be used to filter out positions that are not conserved across major strains. Future work could look at fitting a mixture model to the entropy distribution to find the optimal cutoff.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../images/projects/csc/entropy.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Histogram of the entropy per MSA position. The left mode is random mutations and the other modes are mutations of major strains."><img src="../images/projects/csc/entropy.png" class="img-fluid figure-img" data-max-width="params.img_max_width" alt="Histogram of the entropy per MSA position. The left mode is random mutations and the other modes are mutations of major strains."></a></p>
+<p><a href="../images/projects/csc/entropy_hist.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Histogram of the entropy per MSA position. The left mode is random mutations and the other modes are mutations of major strains."><img src="../images/projects/csc/entropy_hist.png" class="img-fluid figure-img" data-max-width="params.img_max_width" alt="Histogram of the entropy per MSA position. The left mode is random mutations and the other modes are mutations of major strains."></a></p>
 <figcaption>Histogram of the entropy per MSA position. The left mode is random mutations and the other modes are mutations of major strains.</figcaption>
 </figure>
 </div>
 <p>After trimming the MSA to remove low entropy positions, I was left with a 400 x 110 array. This is a good size for clustering, as it is a good balance between having enough data to find clusters and not having too much data to be computationally expensive.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../images/projects/csc/sequences_trim.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Visualization of MSA sequences after trimming. Color scale based on A (lightest), C, G, T (darkest)."><img src="../images/projects/csc/sequences_trim.png" class="img-fluid figure-img" style="width:25.0%" data-max-width="150px" alt="Visualization of MSA sequences after trimming. Color scale based on A (lightest), C, G, T (darkest)."></a></p>
+<p><a href="../images/projects/csc/sequences_trim.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Visualization of MSA sequences after trimming. Color scale based on A (lightest), C, G, T (darkest)."><img src="../images/projects/csc/sequences_trim.png" height="400" alt="Visualization of MSA sequences after trimming. Color scale based on A (lightest), C, G, T (darkest)." class="figure-img"></a></p>
 <figcaption>Visualization of MSA sequences after trimming. Color scale based on A (lightest), C, G, T (darkest).</figcaption>
 </figure>
 </div>
@@ -320,7 +320,7 @@ Figure&nbsp;1: Visualization of MSA sequences before and after cleaning, showing
 <section id="spectral-clustering" class="level4">
 <h4 class="anchored" data-anchor-id="spectral-clustering">Spectral Clustering</h4>
 <p>For spectral clustering I will first convert the adjacency matrix into a Laplacian matrix, which allows use to have at least one eigenvalue equal to zero.</p>
-<p>I tried both the standard Laplacian, <span class="math inline">\(L = D - A\)</span>, and the normalized Laplacian, <span class="math inline">\(L = D^{-/frac{1}{2}} /cdot A /cdot D^{-/frac{1}{2}}\)</span>. Here <span class="math inline">\(D\)</span> is the distance matrix which is a diagonal matrix that sums the weights of the adjacency matrix. I found the standard Laplacian worked better for this application.</p>
+<p>I tried both the standard Laplacian, <span class="math inline">\(L = D - A\)</span>, and the normalized Laplacian, <span class="math inline">\(L = D^{-\frac{1}{2}} \cdot A \cdot D^{-\frac{1}{2}}\)</span>. Here <span class="math inline">\(D\)</span> is the distance matrix which is a diagonal matrix that sums the weights of the adjacency matrix. I found the standard Laplacian worked better for this application.</p>
 <p>For clustering, I used classic <span class="math inline">\(k\)</span>-means. I validated the choice of <span class="math inline">\(k\)</span> with visualizations of the elbow diagram, adjacency matrix, MSA sequences, and eigenvectors.</p>
 </section>
 <section id="clustering-with-isomap" class="level4">
@@ -436,10 +436,10 @@ Figure&nbsp;3: Adjacency matrix after spectral clustering for <span class="math 
 <div aria-describedby="fig-spec-seq-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-spec-seq" style="flex-basis: 25.0%;justify-content: flex-start;">
-<div id="fig-adj1" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" data-max-with="150px">
+<div id="fig-adj1" class="lightbox quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-adj1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="../images/projects/csc/sequences_sorted_1.png" class="lightbox" data-gallery="fig-spec-seq" title="Figure&nbsp;4&nbsp;(a): k=1"><img src="../images/projects/csc/sequences_sorted_1.png" class="img-fluid figure-img" data-max-with="150px" data-ref-parent="fig-spec-seq"></a>
+<a href="../images/projects/csc/sequences_sorted_1.png" class="lightbox" data-gallery="fig-spec-seq" title="Figure&nbsp;4&nbsp;(a): k=1"><img src="../images/projects/csc/sequences_sorted_1.png" data-ref-parent="fig-spec-seq" height="400" class="figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-adj1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (a) <span class="math inline">\(k\)</span>=1
@@ -448,10 +448,10 @@ Figure&nbsp;3: Adjacency matrix after spectral clustering for <span class="math 
 </div>
 </div>
 <div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-spec-seq" style="flex-basis: 25.0%;justify-content: flex-start;">
-<div id="fig-adj5" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" data-max-with="150px">
+<div id="fig-adj5" class="lightbox quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-adj5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="../images/projects/csc/sequences_sorted_5.png" class="lightbox" data-gallery="fig-spec-seq" title="Figure&nbsp;4&nbsp;(b): k=5"><img src="../images/projects/csc/sequences_sorted_5.png" class="img-fluid figure-img" data-max-with="150px" data-ref-parent="fig-spec-seq"></a>
+<a href="../images/projects/csc/sequences_sorted_5.png" class="lightbox" data-gallery="fig-spec-seq" title="Figure&nbsp;4&nbsp;(b): k=5"><img src="../images/projects/csc/sequences_sorted_5.png" data-ref-parent="fig-spec-seq" height="400" class="figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-adj5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (b) <span class="math inline">\(k\)</span>=5
@@ -460,10 +460,10 @@ Figure&nbsp;3: Adjacency matrix after spectral clustering for <span class="math 
 </div>
 </div>
 <div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-spec-seq" style="flex-basis: 25.0%;justify-content: flex-start;">
-<div id="fig-adj7" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" data-max-with="150px">
+<div id="fig-adj7" class="lightbox quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-adj7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="../images/projects/csc/sequences_sorted_7.png" class="lightbox" data-gallery="fig-spec-seq" title="Figure&nbsp;4&nbsp;(c): k=7"><img src="../images/projects/csc/sequences_sorted_7.png" class="img-fluid figure-img" data-max-with="150px" data-ref-parent="fig-spec-seq"></a>
+<a href="../images/projects/csc/sequences_sorted_7.png" class="lightbox" data-gallery="fig-spec-seq" title="Figure&nbsp;4&nbsp;(c): k=7"><img src="../images/projects/csc/sequences_sorted_7.png" data-ref-parent="fig-spec-seq" height="400" class="figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-adj7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (c) <span class="math inline">\(k\)</span>=7
@@ -472,10 +472,10 @@ Figure&nbsp;3: Adjacency matrix after spectral clustering for <span class="math 
 </div>
 </div>
 <div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-spec-seq" style="flex-basis: 25.0%;justify-content: flex-start;">
-<div id="fig-adj9" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" data-max-with="150px">
+<div id="fig-adj9" class="lightbox quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-adj9-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="../images/projects/csc/sequences_sorted_9.png" class="lightbox" data-gallery="fig-spec-seq" title="Figure&nbsp;4&nbsp;(d): k=9"><img src="../images/projects/csc/sequences_sorted_9.png" class="img-fluid figure-img" data-max-with="150px" data-ref-parent="fig-spec-seq"></a>
+<a href="../images/projects/csc/sequences_sorted_9.png" class="lightbox" data-gallery="fig-spec-seq" title="Figure&nbsp;4&nbsp;(d): k=9"><img src="../images/projects/csc/sequences_sorted_9.png" data-ref-parent="fig-spec-seq" height="400" class="figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-adj9-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (d) <span class="math inline">\(k\)</span>=9
@@ -595,10 +595,10 @@ Figure&nbsp;6: Geodesic distance matrix after ISOMAP for <span class="math inlin
 <div aria-describedby="fig-iso-seq-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-iso-seq" style="flex-basis: 25.0%;justify-content: flex-start;">
-<div id="fig-adj1" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" data-max-with="150px">
+<div id="fig-adj1" class="lightbox quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-adj1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="../images/projects/csc/sequences_sorted_iso_1.png" class="lightbox" data-gallery="fig-iso-seq" title="Figure&nbsp;7&nbsp;(a): k=1"><img src="../images/projects/csc/sequences_sorted_iso_1.png" class="img-fluid figure-img" data-max-with="150px" data-ref-parent="fig-iso-seq"></a>
+<a href="../images/projects/csc/sequences_sorted_iso_1.png" class="lightbox" data-gallery="fig-iso-seq" title="Figure&nbsp;7&nbsp;(a): k=1"><img src="../images/projects/csc/sequences_sorted_iso_1.png" data-ref-parent="fig-iso-seq" height="400" class="figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-adj1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (a) <span class="math inline">\(k\)</span>=1
@@ -607,10 +607,10 @@ Figure&nbsp;6: Geodesic distance matrix after ISOMAP for <span class="math inlin
 </div>
 </div>
 <div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-iso-seq" style="flex-basis: 25.0%;justify-content: flex-start;">
-<div id="fig-adj5" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" data-max-with="150px">
+<div id="fig-adj5" class="lightbox quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-adj5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="../images/projects/csc/sequences_sorted_iso_5.png" class="lightbox" data-gallery="fig-iso-seq" title="Figure&nbsp;7&nbsp;(b): k=5"><img src="../images/projects/csc/sequences_sorted_iso_5.png" class="img-fluid figure-img" data-max-with="150px" data-ref-parent="fig-iso-seq"></a>
+<a href="../images/projects/csc/sequences_sorted_iso_5.png" class="lightbox" data-gallery="fig-iso-seq" title="Figure&nbsp;7&nbsp;(b): k=5"><img src="../images/projects/csc/sequences_sorted_iso_5.png" data-ref-parent="fig-iso-seq" height="400" class="figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-adj5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (b) <span class="math inline">\(k\)</span>=5
@@ -619,10 +619,10 @@ Figure&nbsp;6: Geodesic distance matrix after ISOMAP for <span class="math inlin
 </div>
 </div>
 <div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-iso-seq" style="flex-basis: 25.0%;justify-content: flex-start;">
-<div id="fig-adj7" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" data-max-with="150px">
+<div id="fig-adj7" class="lightbox quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-adj7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="../images/projects/csc/sequences_sorted_iso_7.png" class="lightbox" data-gallery="fig-iso-seq" title="Figure&nbsp;7&nbsp;(c): k=7"><img src="../images/projects/csc/sequences_sorted_iso_7.png" class="img-fluid figure-img" data-max-with="150px" data-ref-parent="fig-iso-seq"></a>
+<a href="../images/projects/csc/sequences_sorted_iso_7.png" class="lightbox" data-gallery="fig-iso-seq" title="Figure&nbsp;7&nbsp;(c): k=7"><img src="../images/projects/csc/sequences_sorted_iso_7.png" data-ref-parent="fig-iso-seq" height="400" class="figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-adj7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (c) <span class="math inline">\(k\)</span>=7
@@ -631,10 +631,10 @@ Figure&nbsp;6: Geodesic distance matrix after ISOMAP for <span class="math inlin
 </div>
 </div>
 <div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-iso-seq" style="flex-basis: 25.0%;justify-content: flex-start;">
-<div id="fig-adj9" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" data-max-with="150px">
+<div id="fig-adj9" class="lightbox quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-adj9-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="../images/projects/csc/sequences_sorted_iso_9.png" class="lightbox" data-gallery="fig-iso-seq" title="Figure&nbsp;7&nbsp;(d): k=9"><img src="../images/projects/csc/sequences_sorted_iso_9.png" class="img-fluid figure-img" data-max-with="150px" data-ref-parent="fig-iso-seq"></a>
+<a href="../images/projects/csc/sequences_sorted_iso_9.png" class="lightbox" data-gallery="fig-iso-seq" title="Figure&nbsp;7&nbsp;(d): k=9"><img src="../images/projects/csc/sequences_sorted_iso_9.png" data-ref-parent="fig-iso-seq" height="400" class="figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-adj9-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (d) <span class="math inline">\(k\)</span>=9
@@ -1100,7 +1100,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </a></div><a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank"> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","selector":".lightbox","loop":false,"descPosition":"bottom","openEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","openEffect":"zoom","selector":".lightbox","loop":false,"descPosition":"bottom"});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {

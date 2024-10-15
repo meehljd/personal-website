@@ -60,11 +60,11 @@ Most positions are fully conserved with an entropy of 0.  Some positions have sm
 Next I plotted a histogram of the entropy values to visualize the random mutations versus the major strain mutations.  We can see below the distribution is multimodal.  I put a cutoff threshold at 0.145, which is at the right tail of the random mutation distribution.  This cutoff will be used to filter out positions that are not conserved across major strains.  Future work could look at fitting a mixture model to the entropy distribution to find the optimal cutoff.
 
 
-![Histogram of the entropy per MSA position.  The left mode is random mutations and the other modes are mutations of major strains.](/images/projects/csc/entropy.png){width=params.img_width max-width=params.img_max_width .lightbox}
+![Histogram of the entropy per MSA position.  The left mode is random mutations and the other modes are mutations of major strains.](/images/projects/csc/entropy_hist.png){width=params.img_width max-width=params.img_max_width .lightbox}
 
 After trimming the MSA to remove low entropy positions, I was left with a 400 x 110 array.  This is a good size for clustering, as it is a good balance between having enough data to find clusters and not having too much data to be computationally expensive.
 
-![Visualization of MSA sequences after trimming.  Color scale based on A (lightest), C, G, T (darkest).](/images/projects/csc/sequences_trim.png){width=25% max-width=150px .lightbox}
+![Visualization of MSA sequences after trimming.  Color scale based on A (lightest), C, G, T (darkest).](/images/projects/csc/sequences_trim.png){height=400px .lightbox}
 
 ### Similarity Measure
 
@@ -88,7 +88,7 @@ For the clustering algorithm, I will use $k$-means.  I will also implement my ow
 
 For spectral clustering I will first convert the adjacency matrix into a Laplacian matrix, which allows use to have at least one eigenvalue equal to zero.
 
-I tried both the standard Laplacian, $L = D - A$, and the normalized Laplacian, $L = D^{-/frac{1}{2}} /cdot A /cdot D^{-/frac{1}{2}}$.   Here $D$ is the distance matrix which is a diagonal matrix that sums the weights of the adjacency matrix.  I found the standard Laplacian worked better for this application.
+I tried both the standard Laplacian, $L = D - A$, and the normalized Laplacian, $L = D^{-\frac{1}{2}} \cdot A \cdot D^{-\frac{1}{2}}$.   Here $D$ is the distance matrix which is a diagonal matrix that sums the weights of the adjacency matrix.  I found the standard Laplacian worked better for this application.
 
 For clustering, I used classic $k$-means.  I validated the choice of $k$ with visualizations of the elbow diagram, adjacency matrix, MSA sequences, and eigenvectors.
 
@@ -132,13 +132,13 @@ Looking at the sequences, we again see that there are 5 major strains, with each
 
 ::: {#fig-spec-seq layout-ncol=4}
 
-![$k$=1](/images/projects/csc/sequences_sorted_1.png){#fig-adj1 max-with=150px .lightbox}
+![$k$=1](/images/projects/csc/sequences_sorted_1.png){#fig-adj1 height=400px .lightbox}
 
-![$k$=5](/images/projects/csc/sequences_sorted_5.png){#fig-adj5 max-with=150px .lightbox}
+![$k$=5](/images/projects/csc/sequences_sorted_5.png){#fig-adj5 height=400px .lightbox}
 
-![$k$=7](/images/projects/csc/sequences_sorted_7.png){#fig-adj7 max-with=150px .lightbox}
+![$k$=7](/images/projects/csc/sequences_sorted_7.png){#fig-adj7 height=400px .lightbox}
 
-![$k$=9](/images/projects/csc/sequences_sorted_9.png){#fig-adj9 max-with=150px .lightbox}
+![$k$=9](/images/projects/csc/sequences_sorted_9.png){#fig-adj9 height=400px .lightbox}
 
 MSA sequences after sorting for the $k$ spectral clusters.
 :::
@@ -175,13 +175,13 @@ Next we can see the clustering of the sequences.
 
 ::: {#fig-iso-seq layout-ncol=4}
 
-![$k$=1](/images/projects/csc/sequences_sorted_iso_1.png){#fig-adj1 max-with=150px .lightbox}
+![$k$=1](/images/projects/csc/sequences_sorted_iso_1.png){#fig-adj1 height=400px .lightbox}
 
-![$k$=5](/images/projects/csc/sequences_sorted_iso_5.png){#fig-adj5 max-with=150px .lightbox}
+![$k$=5](/images/projects/csc/sequences_sorted_iso_5.png){#fig-adj5 height=400px .lightbox}
 
-![$k$=7](/images/projects/csc/sequences_sorted_iso_7.png){#fig-adj7 max-with=150px .lightbox}
+![$k$=7](/images/projects/csc/sequences_sorted_iso_7.png){#fig-adj7 height=400px .lightbox}
 
-![$k$=9](/images/projects/csc/sequences_sorted_iso_9.png){#fig-adj9 max-with=150px .lightbox}
+![$k$=9](/images/projects/csc/sequences_sorted_iso_9.png){#fig-adj9 height=400px .lightbox}
 
 MSA sequences after sorting for the $k$ ISOMAP clusters.
 :::
