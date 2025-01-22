@@ -9,10 +9,7 @@ website:
     left:
       - text: Home
         href: index.qmd
-      - text: Resume
-        href: resume.qmd
       - text: Projects
-        # href: projects.qmd
         menu:
           - text: Protein Engineering
             href: projects/protein-engineering.qmd

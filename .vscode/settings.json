@@ -2,5 +2,21 @@
     "cSpell.enabled": true,
     "cSpell.enableFiletypes": [
         "quarto"
+    ],
+    "cSpell.words": [
+        "bioinformatics",
+        "Biopython",
+        "eigs",
+        "fasta",
+        "isomap",
+        "lightbox",
+        "multimodal",
+        "ncol",
+        "numpy",
+        "Ornstein",
+        "sklearn",
+        "transcriptase",
+        "Uhlenbeck",
+        "UPGMA"
     ]
 }

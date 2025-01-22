@@ -3,7 +3,7 @@ title: "Contact"
 title-block: false
 ---
 
-I'm open to discussing new projects, collaborations, or opportunities. Please feel free to reach out!  You can email me at joshua[at]meehl[dot]org or on [LinkedIn](https://www.linkedin.com/in/meehl) or [GitHub](https://github.com/meehljd).  My resume can be found on the [Resume](resume.qmd) page.
+I'm open to discussing new projects, collaborations, or opportunities. Please feel free to reach out!  You can email me at joshua[at]meehl[dot]org or on [LinkedIn](https://www.linkedin.com/in/meehl) or [GitHub](https://github.com/meehljd).
 
 You can also check out my other data science website, the [Data Mage](https://mage.meehl.org), where I analyze the game Magic: The Gathering.
 

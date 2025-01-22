@@ -112,13 +112,6 @@
     "text": "Conclusion\nBoth the spectral clustering and ISOMAP approaches worked well for clustering the SARS-CoV-2 sequences. Both approaches found 5 major strains, with each strain having different levels of heterogeneity. The ISOMAP approach did a better job of separating the sub-strains. Further validation could be performed by using labeled data with strain information.\nFurther work could be done to identify the sensitive of the results to the data cleaning thresholds. Also, the entropy cutoff could be optimized by fitting a mixture model to the entropy distribution. Finally, the clustering algorithms could be optimized for speed and memory usage.\nThe clustering of the strains also raises questions of phylogeny. The clustering could be used to build a phylogenetic tree of the strains. This could be done by using the Hamming distance as a measure of genetic distance between the strains. The tree could be built using a variety of phylogenetic tree algorithms, such as UPGMA or neighbor joining. Or we could drop clustering altogether and model the viral evolution as part of a Ornstein-Uhlenbeck process with stochastic differential equations.\nI hope this project has given you a good overview of how to cluster cDNA sequences. If you have any questions or suggestions, please feel free to reach out to me."
   },
   {
-    "objectID": "resume.html",
-    "href": "resume.html",
-    "title": "Resume",
-    "section": "",
-    "text": "Your browser does not support PDFs. Download the PDF to view it: Download PDF."
-  },
-  {
     "objectID": "projects/protein-engineering.html",
     "href": "projects/protein-engineering.html",
     "title": "Protein Engineering: Harnessing Machine Learning for Molecular Design",
@@ -165,6 +158,6 @@
     "href": "contact.html",
     "title": "Contact",
     "section": "",
-    "text": "I’m open to discussing new projects, collaborations, or opportunities. Please feel free to reach out! You can email me at joshua[at]meehl[dot]org or on LinkedIn or GitHub. My resume can be found on the Resume page.\nYou can also check out my other data science website, the Data Mage, where I analyze the game Magic: The Gathering."
+    "text": "I’m open to discussing new projects, collaborations, or opportunities. Please feel free to reach out! You can email me at joshua[at]meehl[dot]org or on LinkedIn or GitHub.\nYou can also check out my other data science website, the Data Mage, where I analyze the game Magic: The Gathering."
   }
 ]
